@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="shortcut icon" href="{% static 'midia/favicon.ico' %}" type="image/x-icon">
     {% csrf_token %}
     <title>Meu Perfil</title>
 </head>
@@ -71,7 +70,7 @@
     }
 {% if user.is_authenticated %}
     </style>
-    <main><h4>Olá {{ user }} Bem-Vindo(a)! <img src="{{ user.foto }}" alt="." width="100px" height="100px"></h4></main><br>
+    <main><h4>Olá {{ user }} Bem-Vindo(a)! <img src="/static/midia/10.png" alt=".">
 
     <main><h4>__________________Suas Informações__________________<br><br>
               Nome: {{ user.nome_completo }}<br>
