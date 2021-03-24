@@ -18,7 +18,7 @@
                 <a class="navbar-brand" href="{% url 'pages:home' %}">IBBMS</a>
                 <ul class="navbar-nav">
                     {% if user.is_authenticated %}
-                    <a class="nav-link" href="http://127.0.0.1:8000/dados/">Meus Dados</a>
+                    <a class="nav-link" href="https://ibbms2021.herokuapp.com/dados">Meus Dados</a>
                     <a class="nav-link" href="/static/patrimonio.html">Patrimônio</a>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_logout' %}">Sair</a>
