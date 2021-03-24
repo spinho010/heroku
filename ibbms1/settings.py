@@ -159,6 +159,6 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 # User Model
 
-AUTH_USER_MODEL = "users.User"
+#AUTH_USER_MODEL = "users.User"
 
 django_heroku.settings(locals())
