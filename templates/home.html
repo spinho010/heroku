@@ -18,7 +18,7 @@
                 <a class="navbar-brand" href="{% url 'pages:home' %}">IBBMS</a>
                 <ul class="navbar-nav">
                     {% if user.is_authenticated %}
-                    <a class="nav-link" href="/static/dados.html">Meus Dados</a>
+                    <a class="nav-link" href="http://127.0.0.1:8000/dados/">Meus Dados</a>
                     <a class="nav-link" href="/static/patrimonio.html">Patrimônio</a>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_logout' %}">Sair</a>
@@ -76,16 +76,16 @@
     </style>
     <main><h4>Olá {{ user }} Bem-Vindo(a)! <img src="{% static '10.png' %}" alt="Minhaft" width="100px" height="100px"></h4></main><br>
 
-    <main><h4>__________________Suas Informações__________________<br><br>
-              Nome: {{ user.nome_completo }}<br>
-              Idade: {{ user.idade }}<br>
-              Cargo: {{ user.cargo }}<br>
-              Situação: {{ user.situacao }}<br>
-              Data de Aniversário: {{ user.niver }}<br>
-              Data de Conversão: {{ user.conversao }}<br>
-              Data de Batismo: {{ user.batismo }}<br>
-              Endereço: {{ user.Localizacao }}<br>
-              Telefone: {{ user.telefone }}</h4></main>
+    <main><h4>_________________Suas Informações__________________<br><br>
+              Nome: {{ iusers.names }}<br>
+              Idade: <br>
+              Cargo: <br>
+              Situação: <br>
+              Data de Aniversário: <br>
+              Data de Conversão: <br>
+              Data de Batismo: <br>
+              Endereço: <br>
+              Telefone: </h4></main>
 {% else %}
     <h11>Cadastre-se ou Faça o login para ter acesso ao Seu Perfil!</h11>
 {% endif %}

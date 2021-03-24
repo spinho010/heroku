@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
     <title>Meus Dados</title>
 </head>
 <body>
@@ -40,10 +41,10 @@
         border-radius: 10px;
     }
     </style>
-    <form action="" method="POST">
-    <main><h4>_____________Suas Informações_____________<br><br>
+    <form action="submit" method="POST">{% csrf_token %}
+    <main><h4>____________Suas Informações_____________<br><br>
         Nome: <input type="text" name="names" size="61" ><br>
-        Idade: <input type="text" name="anos" size="62"><br>
+        Idade: <input type="text" name="idadi" size="62"><br>
         Cargo: <input type="text" name="ocupacao" size="61"><br>
         Situação: <input type="text" name="estado" size="55"><br>
         Data de Aniversário: <input type="text" name="aniversario" size="32"><br>
