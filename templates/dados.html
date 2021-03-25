@@ -1,65 +1,41 @@
 <!DOCTYPE html>
 {% load static %}
-{% csrf_token %}
 <html lang="pt-br">
 <head>
-    {% csrf_token %}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
-    <title>Meus Dados</title>
+    <title>Inicio</title>
 </head>
 <body>
-    {% csrf_token %}
-    <h1>Nesta tela é Possivel Adicionar ou Alterar seus dados!</h1>
     <style>
-    body {
-    text-align: center;
-    color: white;
-    background: rgb(94,204,85);
-    background: linear-gradient(90deg, rgba(94,204,85,1) 0%, rgba(31,206,141,1) 0%, rgba(21,206,150,1) 15%, rgba(4,207,165,1) 27%);
-    }
-    main {
-    background-color: white;
-    width: 700px;
-    heigth: 600px;
-    margin: auto;
-    padding: 10px;
-    box-shadow: 6px 6px 10px black;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 30px;
-    border-radius: 15px;
-    color: black;
-    text-align: left;
-    }
-    input{
-        height: 20px;
-        border-radius: 10px;
-    }
-    button{
-        background-color: rgba(4,207,165,1);
-        border-bottom: black
-        currentColor white;
-        border-radius: 10px;
-    }
+        body{
+        background: rgb(94,204,85);
+        background: linear-gradient(90deg, rgba(94,204,85,1) 0%, rgba(31,206,141,1) 0%, rgba(21,206,150,1) 15%, rgba(4,207,165,1) 27%);
+        }
+        main {
+        background-color: white;
+        width: 700px;
+        heigth: 600px;
+        margin: auto;
+        padding: 10px;
+        box-shadow: 6px 6px 10px black;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 25px;
+        border-radius: 15px;
+        }        
     </style>
-    <form action="submit" method="POST">{% csrf_token %}
-    <main><h4>____________Suas Informações_____________<br><br>
-        Nome: <input type="text" name="names" size="61" ><br>
-        Idade: <input type="text" name="idadi" size="62"><br>
-        Cargo: <input type="text" name="ocupacao" size="61"><br>
-        Situação: <input type="text" name="estado" size="55"><br>
-        Data de Aniversário: <input type="text" name="aniversario" size="32"><br>
-        Data de Conversão: <input type="text" name="convert" size="34"><br>
-        Data de Batismo: <input type="text" name="banho" size="40"><br>
-        Endereço: <input type="text" name="casa" size="55"><br>
-        Telefone: <input type="text" name="tel" size="57"><br></h4>
-        <button type="submit">Salvar</button>
-        <a href="https://ibbms2021.herokuapp.com/">
-            <button type="button">Cancelar</button></main>
-        </a>
-    </form>
-
+    <main><h4>_________________Suas Informações_________________<br><br>
+        Nome: {{ iuseer.names }}<br>
+        Idade: {{ iuseer.idadi }}<br>
+        Cargo: {{ iuseer.ocupacao }}<br>
+        Situação: {{ iuseer.estado }}<br>
+        Data de Aniversário: {{ iuseer.aniversario }}<br>
+        Data de Conversão: {{ iuseer.convert }}<br>
+        Data de Batismo: {{ iuseer.banho }}<br>
+        Endereço: {{ iuseer.casa }}<br>
+        Telefone: {{ iuseer.tel }}<br></h4>
+        <button><a href="/dados">Editar</a></button>
 </body>
 </html>

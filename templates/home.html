@@ -19,10 +19,6 @@
                 <ul class="navbar-nav">
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="/dados">Meus Dados</a>
-                    </li>
-                    <a class="nav-link" href="/static/patrimonio.html">Patrimônio</a>
-                    <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_logout' %}">Sair</a>
                     </li>
                     {% else %}
@@ -74,20 +70,39 @@
     font-size: 1px;
     border-radius: 15px;
     }
+    p{
+    background-color: white;
+    width: 250px;
+    height: 130px;
+    margin: auto;
+    padding: 10px;
+    box-shadow: 6px 6px 10px black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    border-radius: 10px;
+    text-align: center;
+    }
+    h2{
+    background-color: white;
+    width: 250px;
+    height: 100px;
+    margin: auto;
+    padding: 10px;
+    box-shadow: 6px 6px 10px black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    border-radius: 10px;
+    text-align: left;
+    color: black;
+
+    }
+
 {% if user.is_authenticated %}
     </style>
-    <main><h4>Olá {{ user }} Bem-Vindo(a)! <img src="{% static '10.png' %}" alt="Minhaft" width="100px" height="100px"></h4></main><br>
+    <main><h4>Olá {{ user }} Bem-Vindo(a)! <img src="{% static '10.png' %}" alt="Minhaft" width="100px" height="100px"></h4></main><br><br><br>
+    <h2><img src="{% static 'midia/dados.png' %}" alt="dados" width="80px" height="80px"> <a href="/informacoes">Meus Dados</a></h2><br>      <h2><img src="{% static 'midia/patri.png' %}" alt="patrimonio" width="80px" height="80px"> <a href="/static/patrimonio.html">Patrimônio</a></h2>
+    
 
-    <main><h4>_________________Suas Informações__________________<br><br>
-              Nome: {{ iusers.names }}<br>
-              Idade: <br>
-              Cargo: <br>
-              Situação: <br>
-              Data de Aniversário: <br>
-              Data de Conversão: <br>
-              Data de Batismo: <br>
-              Endereço: <br>
-              Telefone: </h4></main>
 {% else %}
     <h11>Cadastre-se ou Faça o login para ter acesso ao Seu Perfil!</h11>
 {% endif %}

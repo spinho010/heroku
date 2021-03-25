@@ -3,8 +3,14 @@ from django.http import HttpResponse
 from users.models import iuser
 # Create your views here.
 
+def home(request):
+    iuseer = iuser.objects.get(id=1)
+    response = {'iuseer':iuseer}
+    return render(request, 'dados.html', response)
+
+
 def listar_dados(request):
-    return render(request, 'dados.html')
+    return render(request, 'addados.html')
 
 
 def submit_dados(request):

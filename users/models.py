@@ -29,6 +29,7 @@ class iuser(models.Model):
     banho = models.CharField(verbose_name='Data de Batismo:', max_length=30, blank=True)
     casa = models.CharField(verbose_name='Endereço:', max_length=200, blank=True)
     tel = models.CharField(verbose_name='Telefone:', max_length=30, blank=True)
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
     def __str__(self):

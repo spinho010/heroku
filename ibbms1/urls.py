@@ -23,5 +23,6 @@ urlpatterns = [
     path("", include("pages.urls", namespace="pages")),
     path("dados/", views.listar_dados),
     path("dados/submit", views.submit_dados),
+    path("informacoes/", views.home),
 
 ]
