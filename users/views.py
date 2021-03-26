@@ -1,12 +1,14 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from users.models import iuser
+from django.contrib.auth.models import User
 # Create your views here.
 
 def home(request):
-    iuseer = iuser.objects.all()
-    response = {'iuseer':iuseer}
-    return render(request, 'dados.html', response)
+    usuario = request.user
+    iuseer = iuser.objects.filter(usuario=usuario)
+    dados = {'iuseers':iuseer}
+    return render(request, 'dados.html', dados)
 
 
 def listar_dados(request):

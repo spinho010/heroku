@@ -109,7 +109,7 @@
 </style>
 
 {% if user.is_authenticated %}
-    <main><h4><br> MENU DE OPÇÕES <br><br><br><br><br> <button><img src="{% static 'midia/dados.png' %}" alt="dados" width="55px" height="55px"><a href="/informacoes">Meus Dados</a></button> <br><br> <button><img src="{% static 'midia/patri.png' %}" alt="dados" width="60px" height="60px"><a href="/static/patrimonio.html">Patrimonio</a></button> <br><br><br><br><br><br><br><br></h4></main></main>
+    <main><h4><br> MENU DE OPÇÕES <br><br><br><br><br> <a href="/informacoes"><button><img src="{% static 'midia/dados.png' %}" alt="dados" width="55px" height="55px">Meus Dados</button></a> <br><br> <a href="/static/patrimonio.html"><button><img src="{% static 'midia/patri.png' %}" alt="dados" width="60px" height="60px">Patrimonio</button></a> <br><br><br><br><br><br><br><br></h4></main></main>
     
 
 {% else %}

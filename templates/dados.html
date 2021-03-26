@@ -28,15 +28,18 @@
     </style>
     <main><h4>_________________Suas Informações_________________<br><br>
         Usuário: {{ user }}<br>
-        Nome: {{ iuseer.names }}<br>
-        Idade: {{ iuseer.idadi }}<br>
-        Cargo: {{ iuseer.ocupacao }}<br>
-        Situação: {{ iuseer.estado }}<br>
-        Data de Aniversário: {{ iuseer.aniversario }}<br>
-        Data de Conversão: {{ iuseer.convert }}<br>
-        Data de Batismo: {{ iuseer.banho }}<br>
-        Endereço: {{ iuseer.casa }}<br>
-        Telefone: {{ iuseer.tel }}<br></h4>
+        {% for iuseer in iuseers %}
+        Nome:   {{ iuseer.names }}<br>
+        Idade:  {{ iuseer.idadi }}<br>
+        Cargo:  {{ iuseer.ocupacao }}<br>
+        Situação:   {{ iuseer.estado }}<br>
+        Data de Aniversário:    {{ iuseer.aniversario }}<br>
+        Data de Conversão:  {{ iuseer.convert }}<br>
+        Data de Batismo:    {{ iuseer.banho }}<br>
+        Endereço:   {{ iuseer.casa }}<br>
+        Telefone:   {{ iuseer.tel }}<br></h4>
+        {% endfor %}
         <button><a href="/dados">Editar</a></button>
+
 </body>
 </html>
