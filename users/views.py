@@ -4,7 +4,7 @@ from users.models import iuser
 # Create your views here.
 
 def home(request):
-    iuseer = iuser.objects.get(id=1)
+    iuseer = iuser.objects.all()
     response = {'iuseer':iuseer}
     return render(request, 'dados.html', response)
 
