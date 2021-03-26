@@ -61,25 +61,14 @@
     }
     main {
     background-color: white;
-    width: 700px;
-    heigth: 600px;
+    width: 1000px;
+    heigth: 900px;
     margin: auto;
     padding: 10px;
-    box-shadow: 6px 6px 10px black;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1px;
-    border-radius: 15px;
-    }
-    p{
-    background-color: white;
-    width: 250px;
-    height: 130px;
-    margin: auto;
-    padding: 10px;
-    box-shadow: 6px 6px 10px black;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
-    border-radius: 10px;
+    border-top-right-radius: 30px;
+    border-end-start-radius: 30px;
     text-align: center;
     }
     h2{
@@ -94,13 +83,33 @@
     border-radius: 10px;
     text-align: left;
     color: black;
-
     }
+    h4{
+        font-size: 40px;
+        font-weight: bolder;
+    }
+    button{
+        background-color:white;
+        width: 180px;
+        height: 100px;
+        margin: auto;
+        padding: 10px;
+        box-shadow: 3px 3px 5px black;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 17px;
+        border-radius: 35px;
+        text-align: center;
+        color: black;
+        float: none;
+        cursor: pointer;
+        border: none;
+        border:solid 1px;
+        vertical-align: text-top;
+}
+</style>
 
 {% if user.is_authenticated %}
-    </style>
-    <main><h4>Olá {{ user }} Bem-Vindo(a)! <img src="{% static '10.png' %}" alt="Minhaft" width="100px" height="100px"></h4></main><br><br><br>
-    <h2><img src="{% static 'midia/dados.png' %}" alt="dados" width="80px" height="80px"> <a href="/informacoes">Meus Dados</a></h2><br>      <h2><img src="{% static 'midia/patri.png' %}" alt="patrimonio" width="80px" height="80px"> <a href="/static/patrimonio.html">Patrimônio</a></h2>
+    <main><h4><br> MENU DE OPÇÕES <br><br><br><br><br> <button><img src="{% static 'midia/dados.png' %}" alt="dados" width="55px" height="55px"><a href="/informacoes">Meus Dados</a></button> <br><br> <button><img src="{% static 'midia/patri.png' %}" alt="dados" width="60px" height="60px"><a href="/static/patrimonio.html">Patrimonio</a></button> <br><br><br><br><br><br><br><br></h4></main></main>
     
 
 {% else %}
@@ -142,7 +151,7 @@
 
 
     <main1 class="container">
-        <h6>Todos os direitos reservados</h6>
+        <h6><strong>Todos os direitos reservados por IBBMS</strong></h6>
     </main1>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
