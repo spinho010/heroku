@@ -17,6 +17,6 @@ from users.models import iuser
 
 
 class iuserUser(admin.ModelAdmin):
-    list_display = ('names', 'idadi', 'ocupacao', 'estado', 'aniversario', 'convert', 'banho', 'casa', 'tel')
+    list_display = ('names', 'idadi', 'estado', 'aniversario','tel')
 
 admin.site.register(iuser, iuserUser)

@@ -19,6 +19,9 @@
                 <ul class="navbar-nav">
                     {% if user.is_authenticated %}
                     <li class="nav-item">
+                        <a class="nav-link" href="/admin">Administração</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_logout' %}">Sair</a>
                     </li>
                     {% else %}
