@@ -36,6 +36,7 @@
             </div>
         </nav>
     </header>
+
     {% if user.is_authenticated %}
         <h6></h6>
     {% else %}
@@ -58,10 +59,7 @@
     margin-left: auto;
     margin-right: auto
     }
-    body {
-        background: rgb(94,204,85);
-        background: linear-gradient(90deg, rgba(94,204,85,1) 0%, rgba(31,206,141,1) 0%, rgba(21,206,150,1) 15%, rgba(4,207,165,1) 27%);
-    }
+
     main {
     background-color: white;
     width: 1000px;
@@ -91,30 +89,77 @@
         font-size: 40px;
         font-weight: bolder;
     }
-    button{
-        background-color:white;
-        width: 180px;
-        height: 100px;
-        margin: auto;
-        padding: 10px;
-        box-shadow: 3px 3px 5px black;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 17px;
-        border-radius: 35px;
-        text-align: center;
-        color: black;
-        float: none;
-        cursor: pointer;
-        border: none;
-        border:solid 1px;
-        vertical-align: text-top;
-}
+    #dv1{
+        display: inline-block
+    }
+    #dv2{
+        display: inline-block
+    }
+
+
 </style>
 
 {% if user.is_authenticated %}
-    <main><h4><br> MENU DE OPÇÕES <br><br><br><br><br> <a href="/informacoes"><button><img src="{% static 'midia/dados.png' %}" alt="dados" width="55px" height="55px">Meus Dados</button></a> <br><br> <a href="/static/patrimonio.html"><button><img src="{% static 'midia/patri.png' %}" alt="dados" width="60px" height="60px">Patrimonio</button></a> <br><br><br><br><br><br><br><br></h4></main></main>
-    
 
+        <div id="carouselSite" class="carousel slide" data-ride="carousel">
+
+            <ol class="carousel-indicators">
+                <li data-target="#carouselSite" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselSite" data-slide-to="1" class="active"></li>
+            </ol>
+
+            <div class="carousel-inner">
+
+                <div class="carousel-item active">
+
+                    <img src="{% static 'midia/baner1.png' %}" alt="ft" class="img-fluid d-block">
+
+                </div>
+
+                <div class="carousel-item">
+
+                    <img src="{% static 'midia/baner2.png' %}" alt="ft" class="img-fluid d-block">
+
+                </div>
+
+            </div>
+            
+            <a href="#carouselSite" class="carousel-control-prev" role="button" data-slide="prev">
+
+                <span class="carousel-control-prev-icon"></span>
+                <span class="sr-only">Anterior</span>
+
+            </a>
+            
+            <a href="#carouselSite" class="carousel-control-next" id="carouselSite" role="button" data-slide="next">
+
+                <span class="carousel-control-next-icon"></span>
+                <span class="sr-only">Proximo</span>
+
+            </a>
+
+        </div>
+
+        <br><br><br><br><br><br><br><br><br>
+        <div class="card" style="width: 18rem;" id="dv1">
+            <img src="{% static 'midia/arquivosp.jpg' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Patrimônio</h5>
+              <p class="card-text">Aqui você pode ver, o total Patrimônio da IBBMS, saber a condição dos itens e fazer Observações!</p>
+              <a href="/static/patrimonio.html" class="btn btn-primary">Vamos Lá!</a>
+            </div>
+          </div>
+          
+
+
+          <div class="card" style="width: 18rem;" id="dv2">
+            <img src="{% static 'midia/dpessoa.jpg' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Meus Dados</h5>
+              <p class="card-text">Aqui você pode Adicionar e Alterar e Atualizar seus Dados em nosso Sistema de maneira Bem Simples!</p>
+              <a href="/informacoes" class="btn btn-primary">Vamos Lá!</a>
+            </div>
+          </div>
 {% else %}
     
 {% endif %}
