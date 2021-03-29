@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'crispy_forms',
     'users.apps.UsersConfig',
-    'anymail',
 ]
 
 MIDDLEWARE = [
