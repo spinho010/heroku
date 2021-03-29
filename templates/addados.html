@@ -8,6 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
     <title>Editar</title>
 </head>
 <body>
@@ -45,19 +47,19 @@
     }
     </style>
     <form action="submit" method="POST">{% csrf_token %}
-    <main><h4>____________Suas Informações_____________<br><br>
-        Nome: <input type="text" name="names" size="61" ><br>
-        Idade: <input type="text" name="idadi" size="62"><br>
-        Cargo: <input type="text" name="ocupacao" size="61"><br>
-        Situação: <input type="text" name="estado" size="55"><br>
-        Data de Aniversário: <input type="datetime" name="aniversario" size="32"><br>
-        Data de Conversão: <input type="datetime" name="convert" size="34"><br>
-        Data de Batismo: <input type="datetime" name="banho" size="40"><br>
-        Endereço: <input type="text" name="casa" size="55"><br>
-        Telefone: <input type="text" name="tel" size="57"><br>
-        <button type="submit">Salvar</button>
-        <a href="https://ibbms2021.herokuapp.com/">
-            <button type="button">Cancelar</button></main>
+    <main><h4>__________________Suas Informações__________________<br><br>
+        Nome: <input type="text" name="names" size="41" ><br>
+        Idade: <input type="text" name="idadi" size="41"><br>
+        Cargo: <input type="text" name="ocupacao" size="41"><br>
+        Situação: <input type="text" name="estado" size="39"><br>
+        Data de Aniversário: <input type="datetime" name="aniversario" size="29"><br>
+        Data de Conversão: <input type="datetime" name="convert" size="29"><br>
+        Data de Batismo: <input type="datetime" name="banho" size="32"><br>
+        Endereço: <input type="text" name="casa" size="39"><br>
+        Telefone: <input type="text" name="tel" size="40"><br><br>
+        <button type="button" class="btn btn-success" type="submit">Salvar</button>
+        <a href="/">
+            <button type="button" class="btn btn-danger">Cancelar</button></main>
         </a>
     </form>
 

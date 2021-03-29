@@ -40,3 +40,8 @@ def submit_dados(request):
 
     return redirect('/')
 
+
+
+def patri(request):
+    return render(request, 'patrimonio.html')
+

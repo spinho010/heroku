@@ -13,7 +13,7 @@
 <body>
 {% csrf_token %}
     <header>
-        <nav class="navbar navbar-expand navbar-dark bg-dark mb-3">
+        <nav class="navbar navbar-expand navbar-dark bg-dark mb-3" id="navbari">
             <div class="container">
                 <a class="navbar-brand" href="{% url 'pages:home' %}">IBBMS</a>
                 <ul class="navbar-nav">
@@ -40,7 +40,26 @@
     {% if user.is_authenticated %}
         <h6></h6>
     {% else %}
-        <h11>Cadastre-se ou Faça o login para ter acesso ao Seu Perfil!</h11>
+        <style>
+            body{
+                background: rgb(94,204,85);
+                background: linear-gradient(90deg, rgba(94,204,85,1) 0%, rgba(31,206,141,1) 0%, rgba(21,206,150,1) 15%, rgba(4,207,165,1) 27%);
+            }
+        </style>
+        <div class="card text-center" id="card1">
+            <div class="card-header">
+              Entrar Ou Cadastrar
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">IBBMS</h5>
+              <p class="card-text">Aqui Você Pode Criar sua Nova conta Ou Fazer seu Login!</p>
+              <a href="/accounts/login/" class="btn btn-primary">Fazer Login</a>
+              <a href="/accounts/signup/" class="btn btn-primary">Fazer o Castro</a>
+            </div>
+            <div class="card-footer text-muted">
+              IBBMS
+            </div>
+          </div>
     {% endif %}
 </body>
 <style>
@@ -91,10 +110,24 @@
     }
     #dv1{
         display: inline-block
+
     }
     #dv2{
         display: inline-block
     }
+    #dv3{
+        display: inline-block
+    }
+    #card1{
+        width: 600px;
+        margin: auto;
+        box-shadow: 6px 6px 10px black;
+        border-radius: 25px;
+    }
+    body{
+        background-color: whitesmoke
+    }
+    
 
 
 </style>
@@ -106,6 +139,9 @@
             <ol class="carousel-indicators">
                 <li data-target="#carouselSite" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselSite" data-slide-to="1" class="active"></li>
+                <li data-target="#carouselSite" data-slide-to="2" class="active"></li>
+                <li data-target="#carouselSite" data-slide-to="3" class="active"></li>
+                <li data-target="#carouselSite" data-slide-to="4" class="active"></li>
             </ol>
 
             <div class="carousel-inner">
@@ -118,9 +154,28 @@
 
                 <div class="carousel-item">
 
-                    <img src="{% static 'midia/baner2.png' %}" alt="ft" class="img-fluid d-block">
+                    <img src="{% static 'midia/baner5.png' %}" alt="ft" class="img-fluid d-block">
 
                 </div>
+
+                <div class="carousel-item">
+
+                    <img src="{% static 'midia/baner4.png' %}" alt="ft" class="img-fluid d-block">
+
+                </div>
+
+                <div class="carousel-item">
+
+                    <img src="{% static 'midia/baner6.png' %}" alt="ft" class="img-fluid d-block">
+
+                </div>
+
+                <div class="carousel-item">
+
+                    <img src="{% static 'midia/baner7.png' %}" alt="ft" class="img-fluid d-block">
+
+                </div>
+
 
             </div>
             
@@ -140,17 +195,28 @@
 
         </div>
 
-        <br><br><br><br><br><br><br><br><br>
+        <br><br><br>
+         <p style="font-size: 25px; font-weight: bolder; padding: 10px; font-family: Arial, Helvetica, sans-serif; background: rgb(94,204,85);
+         background: linear-gradient(90deg, rgba(94,204,85,1) 0%, rgba(31,206,141,1) 0%, rgba(21,206,150,1) 15%, rgba(4,207,165,1) 27%); color: white;", >Olá {{ user }} Bem-Vindo!<br> Este é um site de Administração, para menbros da IBBMS!<br>
+        Aqui é possivel acompanhar os assuntos da Assembleia,<br> Ver E Editar seus dados e Muito Mais!!<br>
+        Esperamos que aproveite! IBBMS</p>
+        <hr>
+        <iframe width="600" height="370" src="https://www.youtube.com/embed/0yyvjD7yGeY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <br><br>
+        
+        <a href="https://www.youtube.com/channel/UCIjLjyNf0n7ZrDMKABYLuKw/featured"><button type="button" class="btn btn-danger">INSCREVA-SE</button></a>
+        
+        <br><br><br><br>
         <div class="card" style="width: 18rem;" id="dv1">
             <img src="{% static 'midia/arquivosp.jpg' %}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">Patrimônio</h5>
               <p class="card-text">Aqui você pode ver, o total Patrimônio da IBBMS, saber a condição dos itens e fazer Observações!</p>
-              <a href="/static/patrimonio.html" class="btn btn-primary">Vamos Lá!</a>
+              <a href="/patrimonio" class="btn btn-primary">Vamos Lá!</a>
             </div>
           </div>
           
-
+          
 
           <div class="card" style="width: 18rem;" id="dv2">
             <img src="{% static 'midia/dpessoa.jpg' %}" class="card-img-top" alt="...">
@@ -160,6 +226,20 @@
               <a href="/informacoes" class="btn btn-primary">Vamos Lá!</a>
             </div>
           </div>
+
+
+
+          <div class="card" style="width: 18rem;" id="dv3">
+            <img src="{% static 'midia/historia.jpg' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Historia Da Igreja!</h5>
+              <p class="card-text">Aqui você pode Ler a Historia da Igreja, Ver Como tudo começou em Simões Filho, Os Primeiros irmãos e Missionários!</p>
+              <a href="/informacoes" class="btn btn-primary">Vamos Lá!</a>
+            </div>
+          </div>
+
+
+          
 {% else %}
     
 {% endif %}
@@ -194,8 +274,21 @@
     <h1></h1>
 {% endif %}
 
-
-<audio src="{% static '4 NISSO PENSAI.mp3' %}" autoplay loop></audio>
+<audio src="{% static '1.aac' %}" autoplay></audio>
+<audio src="{% static '2.aac' %}" autoplay></audio>
+<audio src="{% static '3.mp3' %}" autoplay></audio>
+<audio src="{% static '4.mp3' %}" autoplay></audio>
+<audio src="{% static '5.mp3' %}" autoplay></audio>
+<audio src="{% static '6.mp3' %}" autoplay></audio>
+<audio src="{% static '7.mp3' %}" autoplay></audio>
+<audio src="{% static '8.mp3' %}" autoplay></audio>
+<audio src="{% static '9.mp3' %}" autoplay></audio>
+<audio src="{% static '10.mp3' %}" autoplay></audio>
+<audio src="{% static '11.mp3' %}" autoplay></audio>
+<audio src="{% static '12.mp3' %}" autoplay></audio>
+<audio src="{% static '13.mp3' %}" autoplay></audio>
+<audio src="{% static '14.mp3' %}" autoplay></audio>
+<audio src="{% static '15.mp3' %}" autoplay></audio>
 
 
     <main1 class="container">
@@ -205,5 +298,23 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
+    <footer>
+        <style>
+            footer{
+                background: rgb(94,204,85);
+                background: linear-gradient(90deg, rgba(94,204,85,1) 0%, rgba(31,206,141,1) 0%, rgba(21,206,150,1) 15%, rgba(4,207,165,1) 27%);
+                color: white;
+                padding: 10px;
+                text-align: center;
+                font-size: 30px;
+                }
+        </style>
+
+        <br><br><br>
+        Entre em contato Conosco!<br>
+        Mande uma SUGESTÃO ou OBSERVAÇÃO<br>
+        Mande Uma Contribuição<br>
+        Entre Em contato com A Administração<br><br><br><br><br>
+    </footer>
 </body>
 </html>

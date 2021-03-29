@@ -24,5 +24,6 @@ urlpatterns = [
     path("dados/", views.listar_dados),
     path("dados/submit", views.submit_dados),
     path("informacoes/", views.home),
+    path("patrimonio/", views.patri),
 
 ]
