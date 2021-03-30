@@ -206,26 +206,74 @@
         
         <a href="https://www.youtube.com/channel/UCIjLjyNf0n7ZrDMKABYLuKw/featured" target="__blank"><button type="button" class="btn btn-danger">INSCREVA-SE</button></a>
         
-        <br><br><br><br>
-        <div class="card" style="width: 18rem;" id="dv1">
-            <img src="{% static 'midia/arquivosp.jpg' %}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Patrimônio</h5>
-              <p class="card-text">Aqui você pode ver, o total Patrimônio da IBBMS, saber a condição dos itens e fazer Observações!</p>
-              <a href="/patrimonio" class="btn btn-primary">Vamos Lá!</a>
-            </div>
-          </div>
-          
-          
 
-          <div class="card" style="width: 18rem;" id="dv2">
-            <img src="{% static 'midia/dpessoa.jpg' %}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Meus Dados</h5>
-              <p class="card-text">Aqui você pode Adicionar e Alterar e Atualizar seus Dados em nosso Sistema de maneira Bem Simples!</p>
-              <a href="/informacoes" class="btn btn-primary">Vamos Lá!</a>
+        {% if user.groups.all.0.name == 'DIREITORIA' %}
+            <br><br><br><br>
+            <div class="card" style="width: 18rem;" id="dv1">
+                <img src="{% static 'midia/arquivosp.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">Patrimônio</h5>
+                <p class="card-text">Aqui você pode ver, o total Patrimônio da IBBMS, saber a condição dos itens e fazer Observações!</p>
+                <a href="/patrimonio" class="btn btn-primary">Vamos Lá!</a>
+                </div>
             </div>
-          </div>
+
+            <div class="card" style="width: 18rem;" id="dv2">
+                <img src="{% static 'midia/dpessoa.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">Meus Dados</h5>
+                <p class="card-text">Aqui você pode Adicionar e Alterar e Atualizar seus Dados em nosso Sistema de maneira Bem Simples!</p>
+                <a href="/informacoes" class="btn btn-primary">Vamos Lá!</a>
+                </div>
+            </div>
+        {% else %}
+            <h1></h1>
+        {% endif %}
+        
+          
+        {% if user.groups.all.0.name == 'MENBRO' %}
+            <div class="card" style="width: 18rem;" id="dv2">
+                <img src="{% static 'midia/dpessoa.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">Meus Dados</h5>
+                <p class="card-text">Aqui você pode Adicionar e Alterar e Atualizar seus Dados em nosso Sistema de maneira Bem Simples!</p>
+                <a href="/informacoes" class="btn btn-primary">Vamos Lá!</a>
+                </div>
+            </div>
+        {% else %}
+            <h1></h1>
+        {% endif %}
+
+
+        {% if user.groups.all.0.name == 'VISITANTE' %}
+
+        {% else %}
+            <h1></h1>
+        {% endif %}
+
+
+        {% if user.groups.all.0.name == 'DESENVOLVEDOR' %}
+            <br><br><br><br>
+            <div class="card" style="width: 18rem;" id="dv1">
+                <img src="{% static 'midia/arquivosp.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">Patrimônio</h5>
+                <p class="card-text">Aqui você pode ver, o total Patrimônio da IBBMS, saber a condição dos itens e fazer Observações!</p>
+                <a href="/patrimonio" class="btn btn-primary">Vamos Lá!</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem;" id="dv2">
+                <img src="{% static 'midia/dpessoa.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">Meus Dados</h5>
+                <p class="card-text">Aqui você pode Adicionar e Alterar e Atualizar seus Dados em nosso Sistema de maneira Bem Simples!</p>
+                <a href="/informacoes" class="btn btn-primary">Vamos Lá!</a>
+                </div>
+            </div>
+        {% else %}
+            <h1></h1>
+        {% endif %}
 
 
 
@@ -266,38 +314,37 @@
 
           
 {% else %}
-    
+
 {% endif %}
 
 {% if user.groups.all.0.name == 'MENBRO' %}
-    <h5>VOCE ESTA AUTENTICADO COMO MEBRO COM PERMISSÕES LIMITADAS</h5><br>
+    <h5 style="background: rgb(94,204,85);
+    background: linear-gradient(90deg, rgba(94,204,85,1) 0%, rgba(31,206,141,1) 0%, rgba(21,206,150,1) 15%, rgba(4,207,165,1) 27%); color: white;" >Nivel de Permissão: MENBRO</h5><br>
 {% else %}
     <h1></h1>
 {% endif %}
 
 {% if user.groups.all.0.name == 'DESENVOLVEDOR' %}
-    <h5>VOCE ESTA AUTENTICADO COMO DESENVOLVEDOR COM PERMISSÕES ILIMITADAS</h5><br>
+    <h5 style="background: rgb(94,204,85);
+    background: linear-gradient(90deg, rgba(94,204,85,1) 0%, rgba(31,206,141,1) 0%, rgba(21,206,150,1) 15%, rgba(4,207,165,1) 27%); color: white;" >Nivel de Permissão: DESENVOLVEDOR</h5><br>
 {% else %}
     <h1></h1>
 {% endif %}
 
 {% if user.groups.all.0.name == 'DIREITORIA' %}
-    <h5>VOCE ESTA AUTENTICADO COMO DIREITORIA COM PERMISSÕES QUASE ILIMITADAS</h5><br>
+    <h5 style="background: rgb(94,204,85);
+    background: linear-gradient(90deg, rgba(94,204,85,1) 0%, rgba(31,206,141,1) 0%, rgba(21,206,150,1) 15%, rgba(4,207,165,1) 27%); color: white;" >Nivel de Permissão: DIREITORIA</h5><br>
 {% else %}
     <h1></h1>
 {% endif %}
 
-{% if user.groups.all.0.name == 'VALENTE' %}
-    <h5>VOCE ESTA AUTENTICADO COMO MENBRO-VALENTE COM PERMISSÕES LIMITADAS</h5><br>
+{% if user.groups.all.0.name == 'VISITANTE' %}
+    <h5 style="background: rgb(94,204,85);
+    background: linear-gradient(90deg, rgba(94,204,85,1) 0%, rgba(31,206,141,1) 0%, rgba(21,206,150,1) 15%, rgba(4,207,165,1) 27%); color: white;" >Nivel de Permissão: VISITANTE</h5><br>
 {% else %}
     <h1></h1>
 {% endif %}
 
-{% if user.groups.all.0.name == 'QUIJINGE' %}
-    <h5>VOCE ESTA AUTENTICADO COMO MENBRO-QUIJINGUE COM PERMISSÕES LIMITADAS</h5><br>
-{% else %}
-    <h1></h1>
-{% endif %}
 
 
 
@@ -307,6 +354,6 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
-    <
+    
 </body>
 </html>
