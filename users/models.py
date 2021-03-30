@@ -36,3 +36,10 @@ class iuser(models.Model):
 
     def __str__(self):
         return self.names
+
+
+    
+class dizimo(models.Model):
+    valor = models.CharField(verbose_name='Valor da Entrada:',max_length=50, blank=True)
+    usuario = models.ForeignKey(User, on_delete=models.PROTECT, null=True)
+    data_entrada = models.CharField(verbose_name='Data da Entrada:', max_length=50, blank=True)

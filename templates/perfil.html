@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <title>Meu Perfil</title>
+</head>
+<body>
+    <style>
+        #dv5{
+            padding: 20px;
+            display: inline-block
+        }
+        body{
+        background: rgb(94,204,85);
+        background: linear-gradient(90deg, rgba(94,204,85,1) 0%, rgba(31,206,141,1) 0%, rgba(21,206,150,1) 15%, rgba(4,207,165,1) 27%); 
+            }
+        #dv6{
+            width: 600px;
+            display: inline-block
+        }
+    </style>
+    
+    <br><br>
+    <div class="card" style="width: 18rem;" id="dv5">
+        <img src="{% static 'midia/perfil.jpg' %}" class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title">{{ user }}</h5>
+          <p class="card-text"><p>Bem-Vindo ao Seu Perfil!</p>
+        </div>
+      </div>
+
+
+
+
+
+
+
+      _____________________________________________
+      <div class="card" id="dv6">
+        <div class="card-header">
+          Ultimas Entradas $
+        </div>
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p>{{ dizimo.valor }}</p>
+            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+          </blockquote>
+        </div>
+      </div>
+</body>
+</html>

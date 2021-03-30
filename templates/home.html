@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
     {% csrf_token %}
-    <title>Meu Perfil</title>
+    <title>Inicio</title>
 </head>
 
 <body>
@@ -18,6 +18,9 @@
                 <a class="navbar-brand" href="{% url 'pages:home' %}">IBBMS</a>
                 <ul class="navbar-nav">
                     {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/perfil">Meu Perfil</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/admin">Administração</a>
                     </li>
@@ -199,7 +202,12 @@
          <p style="font-size: 25px; font-weight: bolder; padding: 10px; font-family: Arial, Helvetica, sans-serif; background: rgb(94,204,85);
          background: linear-gradient(90deg, rgba(94,204,85,1) 0%, rgba(31,206,141,1) 0%, rgba(21,206,150,1) 15%, rgba(4,207,165,1) 27%); color: white;", >Olá {{ user }} Bem-Vindo!<br> Este é um site de Administração, para menbros da IBBMS!<br>
         Aqui é possivel acompanhar os assuntos da Assembleia,<br> Ver E Editar seus dados e Muito Mais!!<br>
-        Esperamos que aproveite! IBBMS</p>
+        Esperamos que aproveite! IBBMS</p>  
+        {% if user.groups.all.0.name == 'TESOREIRA' %}
+            <a href="/dizimo" class="btn btn-primary">GERENCIAR ENTRADAS</a>
+        {% else %}
+            <h1></h1>
+        {% endif %}
         <hr>
         <iframe width="600" height="370" src="https://www.youtube.com/embed/0yyvjD7yGeY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <br><br>
@@ -208,6 +216,30 @@
         
 
         {% if user.groups.all.0.name == 'DIREITORIA' %}
+            <br><br><br><br>
+            <div class="card" style="width: 18rem;" id="dv1">
+                <img src="{% static 'midia/arquivosp.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">Patrimônio</h5>
+                <p class="card-text">Aqui você pode ver, o total Patrimônio da IBBMS, saber a condição dos itens e fazer Observações!</p>
+                <a href="/patrimonio" class="btn btn-primary">Vamos Lá!</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem;" id="dv2">
+                <img src="{% static 'midia/dpessoa.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">Meus Dados</h5>
+                <p class="card-text">Aqui você pode Adicionar e Alterar e Atualizar seus Dados em nosso Sistema de maneira Bem Simples!</p>
+                <a href="/informacoes" class="btn btn-primary">Vamos Lá!</a>
+                </div>
+            </div>
+        {% else %}
+            <h1></h1>
+        {% endif %}
+
+
+        {% if user.groups.all.0.name == 'TESOREIRA' %}
             <br><br><br><br>
             <div class="card" style="width: 18rem;" id="dv1">
                 <img src="{% static 'midia/arquivosp.jpg' %}" class="card-img-top" alt="...">
@@ -341,6 +373,13 @@
 {% if user.groups.all.0.name == 'VISITANTE' %}
     <h5 style="background: rgb(94,204,85);
     background: linear-gradient(90deg, rgba(94,204,85,1) 0%, rgba(31,206,141,1) 0%, rgba(21,206,150,1) 15%, rgba(4,207,165,1) 27%); color: white;" >Nivel de Permissão: VISITANTE</h5><br>
+{% else %}
+    <h1></h1>
+{% endif %}
+
+{% if user.groups.all.0.name == 'TESOREIRA' %}
+    <h5 style="background: rgb(94,204,85);
+    background: linear-gradient(90deg, rgba(94,204,85,1) 0%, rgba(31,206,141,1) 0%, rgba(21,206,150,1) 15%, rgba(4,207,165,1) 27%); color: white;" >Nivel de Permissão: TESOUREIRA</h5><br>
 {% else %}
     <h1></h1>
 {% endif %}
