@@ -13,7 +13,7 @@
     <style>
         #dv5{
             padding: 20px;
-            display: inline-block
+            margin: auto;
         }
         body{
         background: rgb(94,204,85);
@@ -23,34 +23,95 @@
             width: 600px;
             display: inline-block
         }
+        #dv7{
+          
+        }
+        main {
+        background-color: white;
+        width: 1000px;
+        heigth: 600px;
+        margin: auto;
+        padding: 20px;
+        box-shadow: 6px 6px 10px black;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 25px;
+        border-radius: 15px;}
+        #teste{
+          background-color: white;
+          width: 1000px;
+          heigth: 370px;
+          margin: auto;
+          padding: 20px;
+          box-shadow: 6px 6px 10px black;
+          font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+          font-size: 25px;
+          border-radius: 15px;
+        }
+      
     </style>
     
     <br><br>
     <div class="card" style="width: 18rem;" id="dv5">
         <img src="{% static 'midia/perfil.jpg' %}" class="card-img-top" alt="">
         <div class="card-body">
-          <h5 class="card-title">{{ user }}</h5>
-          <p class="card-text"><p>Bem-Vindo ao Seu Perfil!</p>
+          <h5 class="card-title">Olá {{ user }}</h5>
+          <p class="card-text"> <a href="/"><button type="button" class="btn btn-success">Voltar</button></a><br><br>
+            {% if user.groups.all.0.name == 'TESOREIRA' %}
+                                    <a href="/dizimo" class="btn btn-primary">GERENCIAR ENTRADAS</a>
+                               {% else %}
+                                  <h1></h1>
+                                {% endif %}
         </div>
       </div>
+      <br><br><br>
+
+      <main>
+        <div class="table-responsive" id="dv7">
+            <table class="table-table-striped">
+              <h3 style="text-align: center;">HISTORICO DE ENTRADAS</h3><br>
+              <tr>
+                <th>Nome_____________</th>
+
+                <th>Valor da Entrada___________</th>
+                
+                <th>Data da Entrada</th>
+              </tr>
+              
+              {% for dizimo in object_list %}
+              <tr>
+                <td>{{ dizimo.usuario }}</td>
+                <td>{{ dizimo.valor }}</td>
+                <td>{{ dizimo.data_entrada }}</td>
+              </tr>
+              {% empty %}
+
+              <td colspan="3">Não tenho registros para este usuario</td>
+
+              {% endfor %}
 
 
+            </table>
 
-
-
-
-
-      _____________________________________________
-      <div class="card" id="dv6">
-        <div class="card-header">
-          Ultimas Entradas $
         </div>
-        <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p>{{ dizimo.valor }}</p>
-            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-          </blockquote>
-        </div>
-      </div>
-</body>
-</html>
+      </main>
+      <br><br><br>
+      
+      <br><br>
+      
+      <h1 style="color: white; text-align: center; font-size: 70px;">Opções</h1>
+      
+      <br><br>
+
+
+      <main id="teste">
+        <h2>Leitura Biblica!</h2>
+        <a href="https://www.bibliaonline.com.br/acf/index" target="__blank"><button class="btn btn-success" style="font-family: Arial, Helvetica, sans-serif;">Ler A Biblia!</button></a>  <img src="{% static 'midia/lendo.jpg' %}" alt="ft" width="500px" align="right">
+        <br><br>
+
+        <h2>Ouvir Hinos!</h2><br>
+        <audio src="{% static 'musicas.mp3' %}" controls ></audio>
+        <br><br>
+
+        <h2>Letra Dos Hinos!</h2>
+        <a href="https://www.letras.mus.br/cantor-cristao/" target="__blank"><button class="btn btn-success" style="font-family: Arial, Helvetica, sans-serif;">Ler A Biblia!</button></a><br><br></main>
+      <br><br><br><br><br><br>

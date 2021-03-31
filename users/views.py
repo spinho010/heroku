@@ -2,7 +2,9 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from users.models import iuser, dizimo
 from django.contrib.auth.models import User
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.list import ListView
+
 # Create your views here.
 
 def home(request):
@@ -46,7 +48,7 @@ def submit_dados(request):
 def patri(request):
     return render(request, 'patrimonio.html')
 
-
+################# CRIAR ###################
 class Addizimo(CreateView):
     model = dizimo
     fields = ['valor', 'data_entrada', 'usuario']
@@ -54,6 +56,8 @@ class Addizimo(CreateView):
     success_url = ('/')
 
 
+
+################# ATUALIZAR ###################
 class Eddizimo(UpdateView):
     model = dizimo
     fields = ['valor', 'data_entrada', 'usuario']
@@ -61,5 +65,6 @@ class Eddizimo(UpdateView):
     success_url = ('/')
 
 
-def perfil(request):
-    return render(request, 'perfil.html')
+class perfil(ListView):
+    model = dizimo
+    template_name = 'perfil.html'

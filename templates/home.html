@@ -203,11 +203,6 @@
          background: linear-gradient(90deg, rgba(94,204,85,1) 0%, rgba(31,206,141,1) 0%, rgba(21,206,150,1) 15%, rgba(4,207,165,1) 27%); color: white;", >Olá {{ user }} Bem-Vindo!<br> Este é um site de Administração, para menbros da IBBMS!<br>
         Aqui é possivel acompanhar os assuntos da Assembleia,<br> Ver E Editar seus dados e Muito Mais!!<br>
         Esperamos que aproveite! IBBMS</p>  
-        {% if user.groups.all.0.name == 'TESOREIRA' %}
-            <a href="/dizimo" class="btn btn-primary">GERENCIAR ENTRADAS</a>
-        {% else %}
-            <h1></h1>
-        {% endif %}
         <hr>
         <iframe width="600" height="370" src="https://www.youtube.com/embed/0yyvjD7yGeY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <br><br>
