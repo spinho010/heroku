@@ -54,13 +54,8 @@
     <div class="card" style="width: 18rem;" id="dv5">
         <img src="{% static 'midia/perfil.jpg' %}" class="card-img-top" alt="">
         <div class="card-body">
-          <h5 class="card-title">Olá {{ user }}</h5>
-          <p class="card-text"> <a href="/"><button type="button" class="btn btn-success">Voltar</button></a><br><br>
-            {% if user.groups.all.0.name == 'TESOREIRA' %}
-                                    <a href="/dizimo" class="btn btn-primary">GERENCIAR ENTRADAS</a>
-                               {% else %}
-                                  <h1></h1>
-                                {% endif %}
+          <h5 class="card-title">Olá {{ user }} Bem-Vindo ao seu Perfil</h5>
+          <p class="card-text"> <br>
         </div>
       </div>
       <br><br><br>
@@ -94,13 +89,13 @@
 
         </div>
       </main>
-      <br><br><br>
+      <br><br>
       
       <br><br>
       
       <h1 style="color: white; text-align: center; font-size: 70px;">Opções</h1>
       
-      <br><br>
+      <br><br><br>
 
 
       <main id="teste">
@@ -113,8 +108,68 @@
         <br><br>
 
         <h2>Letra Dos Hinos!</h2>
-        <a href="https://www.letras.mus.br/cantor-cristao/" target="__blank"><button class="btn btn-success" style="font-family: Arial, Helvetica, sans-serif;">Ler A Biblia!</button></a><br><br></main>
-      <br><br><br><br><br><br>
+        <a href="https://www.letras.mus.br/cantor-cristao/" target="__blank"><button class="btn btn-success" style="font-family: Arial, Helvetica, sans-serif;">Ler A Biblia!</button></a><br><br>
+      <br>
+      
+      
+        <h2 style="font-size: 40px;">Administração</h2><br>
+        
+        {% if user.groups.all.0.name == 'MENBRO' %}
+        <h5>Nivel de Permissão: MENBRO</h5><br>
+        <h5>Você não tem Permissões Admnistrativas Disponiveis!</h5>
+        <a href="/" class="btn btn-success" style="font-family: Arial, Helvetica, sans-serif;">Voltar</a>
+        {% else %}
+            <h1></h1>
+        {% endif %}
+
+        {% if user.groups.all.0.name == 'DESENVOLVEDOR' %}
+            <h5>Nivel de Permissão: DESENVOLVEDOR</h5><br>
+            <a href="/dizimo" class="btn btn-success" style="font-family: Arial, Helvetica, sans-serif;">Gerenciar Entradas</a>
+            <a href="/admin" class="btn btn-danger" style="font-family: Arial, Helvetica, sans-serif;">Administração</a>
+            <a href="/" class="btn btn-success" style="font-family: Arial, Helvetica, sans-serif;">Voltar</a>
+        {% else %}
+            <h1></h1>
+        {% endif %}
+
+        {% if user.groups.all.0.name == 'DIREITORIA' %}
+            <h5 >Nivel de Permissão: DIREITORIA</h5><br>
+            <a href="/admin" class="btn btn-danger" style="font-family: Arial, Helvetica, sans-serif;">Administração</a>
+            <a href="/" class="btn btn-success" style="font-family: Arial, Helvetica, sans-serif;">Voltar</a>
+        {% else %}
+            <h1></h1>
+        {% endif %}
+
+        {% if user.groups.all.0.name == 'VISITANTE' %}
+            <h5>Nivel de Permissão: VISITANTE</h5><br>
+            <h5>Você não tem Permissões Admnistrativas Disponiveis!</h5>
+            <a href="/" class="btn btn-success" style="font-family: Arial, Helvetica, sans-serif;">Voltar</a>
+        {% else %}
+            <h1></h1>
+        {% endif %}
+
+        {% if user.groups.all.0.name == 'TESOREIRA' %}
+            <h5>Nivel de Permissão: TESOUREIRA</h5><br>
+            <a href="/dizimo" class="btn btn-success" style="font-family: Arial, Helvetica, sans-serif;">Gerenciar Entradas</a>
+            <a href="/admin" class="btn btn-danger" style="font-family: Arial, Helvetica, sans-serif;">Administração</a>
+            <a href="/" class="btn btn-success" style="font-family: Arial, Helvetica, sans-serif;">Voltar</a>
+        {% else %}
+            <h1></h1>
+        {% endif %}
+
+        {% if user.groups.all.0.name == 'SECRETARIA' %}
+            <h5>Nivel de Permissão: TESOUREIRA</h5><br>
+            <a href="/admin" class="btn btn-danger" style="font-family: Arial, Helvetica, sans-serif;">Administração</a>
+            <a href="/sobre" class="btn btn-primary" style="font-family: Arial, Helvetica, sans-serif;">Adicionar Relatorios</a>
+            <a href="/" class="btn btn-success" style="font-family: Arial, Helvetica, sans-serif;">Voltar</a>
+        {% else %}
+            <h1></h1>
+        {% endif %}
+        <br></main>
+
+        <br><br><br><br>
+        
+        <h1 style="font-size: 70px; text-align: center; color: white;">.......IBBMS.......</h1>
+        <br><br><br><br><br>
 
 
       

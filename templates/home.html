@@ -204,10 +204,6 @@
         Aqui é possivel acompanhar os assuntos da Assembleia,<br> Ver E Editar seus dados e Muito Mais!!<br>
         Esperamos que aproveite! IBBMS</p>  
         <hr>
-        <iframe width="600" height="370" src="https://www.youtube.com/embed/0yyvjD7yGeY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <br><br>
-        
-        <a href="https://www.youtube.com/channel/UCIjLjyNf0n7ZrDMKABYLuKw/featured" target="__blank"><button type="button" class="btn btn-danger">INSCREVA-SE</button></a>
         
 
         {% if user.groups.all.0.name == 'DIREITORIA' %}
@@ -326,16 +322,46 @@
                 background: linear-gradient(90deg, rgba(94,204,85,1) 0%, rgba(31,206,141,1) 0%, rgba(21,206,150,1) 15%, rgba(4,207,165,1) 27%);
                 color: white;
                 padding: 10px;
-                text-align: center;
-                font-size: 30px;
+                text-align: left;
+                font-size: 20px;
                 }
         </style>
 
-        <br><br><br>
-        Entre em contato Conosco!<br>
-        Mande uma SUGESTÃO ou OBSERVAÇÃO<br>
-        Mande Uma Contribuição<br>
-        Entre Em contato com A Administração<br>
+        <br>
+        <h1 style="text-align: center;"><strong>Entre em contato Conosco!</strong></h1><br>
+        <ul style="display: inline-block;">   
+            <strong>CONTATO</strong>                                                                                                                                                          
+                <li><a href="https://forms.gle/c2KJHv4o7NpdAauCA" target="_blank"><strong>Entre em contato Conosco!</strong><br></a></li>                                                             
+                <li><a href="https://forms.gle/c2KJHv4o7NpdAauCA" target="_blank"><strong>Entre Com a Administração</strong><br></a></li>
+                <li><a href="https://forms.gle/c2KJHv4o7NpdAauCA" target="_blank"><strong>Tire Suas Duvidas</strong><br></a></li>
+                <li><a href="https://forms.gle/c2KJHv4o7NpdAauCA" target="_blank"><strong>Faça uma Sugestão</strong><br></a></li>
+        </ul>
+
+
+        
+        <ul style="display: inline-block;"> 
+            <strong>SOBRE NOS!</strong>                                                                                                                                                        
+                <li><a href="/sobre" target="_blank"><strong>Nossa Historia</strong><br></a></li>                                                             
+                <li><a href="/sobre" target="_blank"><strong>Nossa Localização</strong><br></a></li>
+                <li><a href="/sobre" target="_blank"><strong>Nossa Equipe</strong><br></a></li>
+                <li><a href="/sobre" target="_blank"><strong>Nossos Eventos</strong><br></a></li>
+        </ul>
+
+
+
+
+
+        <ul style="display: inline-block;"> 
+            <strong>REDES SOCIAIS</strong>                                                                                                                                                        
+                <li><a href="https://www.facebook.com/IBBMSIAO/" target="_blank"><strong>Facebook</strong><br></a></li>                                                             
+                <li><a href="https://www.youtube.com/channel/UCIjLjyNf0n7ZrDMKABYLuKw" target="_blank"><strong>Youtube</strong><br></a></li>
+                <li><a href="#" target="_blank"><strong>Instagran</strong><br></a></li>
+                <li><a href="#" target="_blank"><strong>Twitter</strong><br></a></li>
+        </ul>
+
+        ______________________________
+        <strong style="display: inline-block; font-size: 60px;">IBBMS</strong>
+        <br><br>
     </footer>
 
 
@@ -344,46 +370,6 @@
 
 {% endif %}
 
-{% if user.groups.all.0.name == 'MENBRO' %}
-    <h5 style="background: rgb(94,204,85);
-    background: linear-gradient(90deg, rgba(94,204,85,1) 0%, rgba(31,206,141,1) 0%, rgba(21,206,150,1) 15%, rgba(4,207,165,1) 27%); color: white;" >Nivel de Permissão: MENBRO</h5><br>
-{% else %}
-    <h1></h1>
-{% endif %}
-
-{% if user.groups.all.0.name == 'DESENVOLVEDOR' %}
-    <h5 style="background: rgb(94,204,85);
-    background: linear-gradient(90deg, rgba(94,204,85,1) 0%, rgba(31,206,141,1) 0%, rgba(21,206,150,1) 15%, rgba(4,207,165,1) 27%); color: white;" >Nivel de Permissão: DESENVOLVEDOR</h5><br>
-{% else %}
-    <h1></h1>
-{% endif %}
-
-{% if user.groups.all.0.name == 'DIREITORIA' %}
-    <h5 style="background: rgb(94,204,85);
-    background: linear-gradient(90deg, rgba(94,204,85,1) 0%, rgba(31,206,141,1) 0%, rgba(21,206,150,1) 15%, rgba(4,207,165,1) 27%); color: white;" >Nivel de Permissão: DIREITORIA</h5><br>
-{% else %}
-    <h1></h1>
-{% endif %}
-
-{% if user.groups.all.0.name == 'VISITANTE' %}
-    <h5 style="background: rgb(94,204,85);
-    background: linear-gradient(90deg, rgba(94,204,85,1) 0%, rgba(31,206,141,1) 0%, rgba(21,206,150,1) 15%, rgba(4,207,165,1) 27%); color: white;" >Nivel de Permissão: VISITANTE</h5><br>
-{% else %}
-    <h1></h1>
-{% endif %}
-
-{% if user.groups.all.0.name == 'TESOREIRA' %}
-    <h5 style="background: rgb(94,204,85);
-    background: linear-gradient(90deg, rgba(94,204,85,1) 0%, rgba(31,206,141,1) 0%, rgba(21,206,150,1) 15%, rgba(4,207,165,1) 27%); color: white;" >Nivel de Permissão: TESOUREIRA</h5><br>
-{% else %}
-    <h1></h1>
-{% endif %}
-
-
-
-
-
-    
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>

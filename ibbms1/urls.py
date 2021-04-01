@@ -29,5 +29,6 @@ urlpatterns = [
     path("dizimo/", Addizimo.as_view(), name='dizimo'),
     path("eddizimo/<int:pk>", Eddizimo.as_view(), name='eddizimo'),
     path("perfil/", perfil.as_view(), name='perfil'),
+    path("sobre/", views.sobre),
 
 ]

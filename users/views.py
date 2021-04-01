@@ -72,3 +72,8 @@ class perfil(ListView):
     def get_queryset(self):
         self.object_list = dizimo.objects.filter(usuario=self.request.user)
         return self.object_list
+
+
+
+def sobre(request):
+    return render(request, 'desen.html')
