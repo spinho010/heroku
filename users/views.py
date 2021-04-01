@@ -68,3 +68,7 @@ class Eddizimo(UpdateView):
 class perfil(ListView):
     model = dizimo
     template_name = 'perfil.html'
+
+    def get_queryset(self):
+        self.object_list = dizimo.objects.filter(usuario=self.request.user)
+        return self.object_list
