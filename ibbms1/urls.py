@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from users import views
-from users.views import Addizimo, Eddizimo, perfil
+from users.views import Addizimo, Eddizimo, perfil, addAta, eddAta
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,5 +30,7 @@ urlpatterns = [
     path("eddizimo/<int:pk>", Eddizimo.as_view(), name='eddizimo'),
     path("perfil/", perfil.as_view(), name='perfil'),
     path("sobre/", views.sobre),
+    path("relatorios/", addAta.as_view(), name='relatorios'),
+    path("atas/", eddAta.as_view(), name='ver_relatorios'),
 
 ]

@@ -43,3 +43,11 @@ class dizimo(models.Model):
     valor = models.CharField(verbose_name='Valor da Entrada:',max_length=50, blank=True)
     usuario = models.ForeignKey(User, on_delete=models.PROTECT, null=True)
     data_entrada = models.CharField(verbose_name='Data da Entrada:', max_length=50, blank=True)
+
+
+
+class relatorios(models.Model):
+    nome_rela = models.CharField(verbose_name='Nome do Relatorio:', max_length=100, blank=True)
+    relatorio = models.TextField(verbose_name='Relatório:', max_length=900, blank=True)
+    data_relatorio = models.CharField(verbose_name='Data do Relatorio:', max_length=50, blank=True)
+

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from users.models import iuser, dizimo
+from users.models import iuser, dizimo, relatorios
 from django.contrib.auth.models import User
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
@@ -77,3 +77,17 @@ class perfil(ListView):
 
 def sobre(request):
     return render(request, 'desen.html')
+
+
+
+class addAta(CreateView):
+    model = relatorios
+    fields = ['relatorio', 'nome_rela', 'data_relatorio']
+    template_name = 'atas.html'
+    success_url = ('/')
+
+
+
+class eddAta(ListView):
+    model = relatorios
+    template_name = 'assem.html'

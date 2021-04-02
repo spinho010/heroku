@@ -121,6 +121,9 @@
     #dv3{
         display: inline-block
     }
+    #dv8{
+        display: inline-block
+    }
     #card1{
         width: 600px;
         margin: auto;
@@ -225,6 +228,50 @@
                 <a href="/informacoes" class="btn btn-primary">Vamos Lá!</a>
                 </div>
             </div>
+
+            <div class="card" style="width: 18rem;" id="dv8">
+                <img src="{% static 'midia/ata.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">Relatorios</h5>
+                <p class="card-text">Aqui você pode acompanhar as atas de Assembleias passadas na IBBMS!</p>
+                <a href="/atas" class="btn btn-primary">Vamos Lá!</a>
+                </div>
+            </div>
+        
+        {% else %}
+            <h1></h1>
+        {% endif %}
+
+
+        {% if user.groups.all.0.name == 'SECRETARIA' %}
+            <br><br><br><br>
+            <div class="card" style="width: 18rem;" id="dv1">
+                <img src="{% static 'midia/arquivosp.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">Patrimônio</h5>
+                <p class="card-text">Aqui você pode ver, o total Patrimônio da IBBMS, saber a condição dos itens e fazer Observações!</p>
+                <a href="/patrimonio" class="btn btn-primary">Vamos Lá!</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem;" id="dv2">
+                <img src="{% static 'midia/dpessoa.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">Meus Dados</h5>
+                <p class="card-text">Aqui você pode Adicionar e Alterar e Atualizar seus Dados em nosso Sistema de maneira Bem Simples!</p>
+                <a href="/informacoes" class="btn btn-primary">Vamos Lá!</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem;" id="dv8">
+                <img src="{% static 'midia/ata.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">Relatorios</h5>
+                <p class="card-text">Aqui você pode acompanhar as atas de Assembleias passadas na IBBMS!</p>
+                <a href="/atas" class="btn btn-primary">Vamos Lá!</a>
+                </div>
+            </div>
+        
         {% else %}
             <h1></h1>
         {% endif %}
@@ -249,6 +296,15 @@
                 <a href="/informacoes" class="btn btn-primary">Vamos Lá!</a>
                 </div>
             </div>
+
+            <div class="card" style="width: 18rem;" id="dv8">
+                <img src="{% static 'midia/ata.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">Relatorios</h5>
+                <p class="card-text">Aqui você pode acompanhar as atas de Assembleias passadas na IBBMS!</p>
+                <a href="/atas" class="btn btn-primary">Vamos Lá!</a>
+                </div>
+            </div>
         {% else %}
             <h1></h1>
         {% endif %}
@@ -261,6 +317,15 @@
                 <h5 class="card-title">Meus Dados</h5>
                 <p class="card-text">Aqui você pode Adicionar e Alterar e Atualizar seus Dados em nosso Sistema de maneira Bem Simples!</p>
                 <a href="/informacoes" class="btn btn-primary">Vamos Lá!</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem;" id="dv8">
+                <img src="{% static 'midia/ata.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">Relatorios</h5>
+                <p class="card-text">Aqui você pode acompanhar as atas de Assembleias passadas na IBBMS!</p>
+                <a href="/atas" class="btn btn-primary">Vamos Lá!</a>
                 </div>
             </div>
         {% else %}
@@ -292,6 +357,15 @@
                 <h5 class="card-title">Meus Dados</h5>
                 <p class="card-text">Aqui você pode Adicionar e Alterar e Atualizar seus Dados em nosso Sistema de maneira Bem Simples!</p>
                 <a href="/informacoes" class="btn btn-primary">Vamos Lá!</a>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem;" id="dv8">
+                <img src="{% static 'midia/ata.jpg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">Relatorios</h5>
+                <p class="card-text">Aqui você pode acompanhar as atas de Assembleias passadas na IBBMS!</p>
+                <a href="/atas" class="btn btn-primary">Vamos Lá!</a>
                 </div>
             </div>
         {% else %}
@@ -355,8 +429,8 @@
             <strong>REDES SOCIAIS</strong>                                                                                                                                                        
                 <li><a href="https://www.facebook.com/IBBMSIAO/" target="_blank"><strong>Facebook</strong><br></a></li>                                                             
                 <li><a href="https://www.youtube.com/channel/UCIjLjyNf0n7ZrDMKABYLuKw" target="_blank"><strong>Youtube</strong><br></a></li>
-                <li><a href="#" target="_blank"><strong>Instagran</strong><br></a></li>
-                <li><a href="#" target="_blank"><strong>Twitter</strong><br></a></li>
+                <li><a href="#"><strong>Instagran</strong><br></a></li>
+                <li><a href="#"><strong>Twitter</strong><br></a></li>
         </ul>
 
         ______________________________
@@ -369,6 +443,7 @@
 {% else %}
 
 {% endif %}
+<audio src="{% static 'musicas.mp3' %}" autoplay></audio>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

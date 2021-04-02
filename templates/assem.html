@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <title>Relatorios</title>
+</head>
+<body>
+    <style>
+    main{
+        background-color: white;
+        width: 1000px;
+        heigth: 600px;
+        margin: auto;
+        padding: 10px;
+        box-shadow: 6px 6px 10px black;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        border-radius: 15px;
+        color: black;
+        text-align: left;
+        }
+    body{
+        background: rgb(94,204,85);
+        background: linear-gradient(90deg, rgba(94,204,85,1) 0%, rgba(31,206,141,1) 0%, rgba(21,206,150,1) 15%, rgba(4,207,165,1) 27%);
+        }
+    </style>
+
+    <br><br><br>
+    <main>
+        <div class="card text-center">
+        <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="true" href="#">Relatorio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Disabled</a>
+            </li>
+            </ul>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Relatorio da Assembleia</h5>
+            <p class="card-text">{% for relatorios in object_list %}
+                                    <tr>
+                                    <strong><td>{{ relatorios.nome_rela }}</td> -
+                                    <td>{{ relatorios.data_relatorio }}</td></strong>
+                                    <br><br>
+                                    <td>{{ relatorios.relatorio }}</td>
+                                    <hr><hr>
+                                    <br><br><br>
+                                    
+                                    {% empty %}
+                        
+                                    <td colspan="3">Ainda Não tenho registros de Atas</td>
+                        
+                                    {% endfor %}</p>
+        </div>
+        </div>
+        <br><br>
+        <a href="/" class="btn btn-primary">Voltar</a>
+    </main>
+
+    
+</body>
+</html>

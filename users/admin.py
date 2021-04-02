@@ -5,6 +5,7 @@ from django.contrib.auth import admin as auth_admin
 #from .models import User
 from users.models import iuser
 from users.models import dizimo
+from users.models import relatorios
 
 
 #@admin.register(User)
@@ -27,3 +28,9 @@ class cadDizimo(admin.ModelAdmin):
     list_display = ('valor', 'data_entrada', 'usuario')
 
 admin.site.register(dizimo, cadDizimo)
+
+
+class Atas(admin.ModelAdmin):
+    list_display = ('nome_rela', 'data_relatorio')
+
+admin.site.register(relatorios, Atas)
