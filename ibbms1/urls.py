@@ -32,5 +32,6 @@ urlpatterns = [
     path("sobre/", views.sobre),
     path("relatorios/", addAta.as_view(), name='relatorios'),
     path("atas/", eddAta.as_view(), name='ver_relatorios'),
+    path("baixar/", views.some_view),
 
 ]
