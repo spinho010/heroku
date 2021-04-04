@@ -107,6 +107,7 @@ def some_view(request):
     # Draw things on the PDF. Here's where the PDF generation happens.
     # See the ReportLab documentation for the full list of functionality.
     p.drawString(200, 750, "RELATORIO FINANCEIRO - IBBMS 2021")
+    p.drawString(70, 650, "Nome: {}  Data: {}")
 
     # Close the PDF object cleanly, and we're done.
     p.showPage()
