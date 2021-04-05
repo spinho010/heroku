@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from users.models import iuser, dizimo, relatorios
 from django.contrib.auth.models import User
@@ -7,6 +7,8 @@ from django.views.generic.list import ListView
 import io
 from django.http import FileResponse
 from reportlab.pdfgen import canvas
+from django.template.loader import get_template
+from xhtml2pdf import pisa
 
 # Create your views here.
 
@@ -97,24 +99,47 @@ class eddAta(ListView):
 
 
 
-def some_view(request):
-    # Create a file-like buffer to receive PDF data.
-    buffer = io.BytesIO()
+def render_pdf_view(request):
+    template_path = 'user_printer.html'
+    context = {'myvar': 'this is your template context'}
+    # Create a Django response object, and specify content_type as pdf
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="relatorio.pdf"'
+    # find the template and render it.
+    template = get_template(template_path)
+    html = template.render(context)
 
-    # Create the PDF object, using the buffer as its "file."
-    p = canvas.Canvas(buffer)
+    # create a pdf
+    pisa_status = pisa.CreatePDF(
+       html, dest=response)
+    # if error then show some funy view
+    if pisa_status.err:
+       return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    return response
 
-    # Draw things on the PDF. Here's where the PDF generation happens.
-    # See the ReportLab documentation for the full list of functionality.
-    p.drawString(200, 750, "RELATORIO FINANCEIRO - IBBMS 2021")
-    p.drawString(70, 650, "Nome: {}  Data: {}")
-    p.drawString(70, 600, "Em desenvolvimento")
 
-    # Close the PDF object cleanly, and we're done.
-    p.showPage()
-    p.save()
+class ver_no_pdf(ListView):
+    model = dizimo
+    template_name = 'pdf.html'
 
-    # FileResponse sets the Content-Disposition header so that browsers
-    # present the option to save the file.
-    buffer.seek(0)
-    return FileResponse(buffer, as_attachment=True, filename='relatorio_financeiro.pdf')
+
+def ver_pdf(request, *args, **kwargs):
+    pk = kwargs.get('pk')
+    dizzimo = get_object_or_404(dizimo, pk=pk)
+
+    template_path = 'pdf1.html'
+    context = {'dizzimo': dizzimo}
+    # Create a Django response object, and specify content_type as pdf
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="relatorio.pdf"'
+    # find the template and render it.
+    template = get_template(template_path)
+    html = template.render(context)
+
+    # create a pdf
+    pisa_status = pisa.CreatePDF(
+       html, dest=response)
+    # if error then show some funy view
+    if pisa_status.err:
+       return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    return response

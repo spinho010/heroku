@@ -25,7 +25,7 @@ admin.site.register(iuser, iuserUser)
 
 
 class cadDizimo(admin.ModelAdmin):
-    list_display = ('valor', 'data_entrada', 'usuario')
+    list_display = ('usuario', 'data_entrada')
 
 admin.site.register(dizimo, cadDizimo)
 
