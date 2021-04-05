@@ -108,6 +108,7 @@ def some_view(request):
     # See the ReportLab documentation for the full list of functionality.
     p.drawString(200, 750, "RELATORIO FINANCEIRO - IBBMS 2021")
     p.drawString(70, 650, "Nome: {}  Data: {}")
+    p.drawString(70, 600, "Em desenvolvimento")
 
     # Close the PDF object cleanly, and we're done.
     p.showPage()
