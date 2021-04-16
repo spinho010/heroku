@@ -19,16 +19,35 @@
             font-size: 20px;
         }
         body{
-            background-color: black;
-            color: black;
+            background-color: rgb(57, 59, 59);
+            
+        }
+        main{
+            background-color: white;
+            box-shadow: 5px 5px 5px;
+            width: 900px;
+            margin: auto;
+            padding: 10px;
+            border-radius: 10px;
         }
     </style>
-    <h1>RELATÓRIO FINANCEIRO - IBBMS 2021</h1>
-    <br>
-    <h2>
-        {% for dizimo in object_list %}
-            <tr>
-                <td>{{ dizimo.usuario }} - </td>
-                <td>{{ dizimo.data_entrada }}</td><br>
-            </tr>
-        {% endfor %}
+    <br><br><br>
+    <main>
+        <h1>RELATÓRIO FINANCEIRO - IBBMS 2021</h1>
+        <br>
+        <h2>
+            {% for dizimo in object_list %}
+                <tr>
+                    <td>{{ dizimo.usuario }} - </td>
+                    <td>{{ dizimo.data_entrada }}</td><br>
+                </tr>
+            {% empty %}
+
+                <td colspan="3">Ainda Não tenho registros de Entrada!</td>
+
+            {% endfor %}
+            <br><br>
+            <h2>Total de Entradas: </h2>
+    </main>
+</body>
+</html>

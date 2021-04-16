@@ -103,3 +103,7 @@ class eddAta(ListView):
 class pdf_dizimo(ListView):
     model = dizimo
     template_name = 'boot.html'
+
+
+def atualizar(request):
+    return render(request, 'atualizacoes.html')
