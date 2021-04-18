@@ -16,15 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from users import views
-from users.views import Addizimo, Eddizimo, perfil, addAta, eddAta, pdf_dizimo, atualizar
+from users.views import Addizimo, Eddizimo, perfil, addAta, eddAta, pdf_dizimo, atualizar, submit_dados, Ver_Dados
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include("allauth.urls")),
     path("", include("pages.urls", namespace="pages")),
-    path("dados/", views.listar_dados),
-    path("dados/submit", views.submit_dados),
-    path("informacoes/", views.home),
+    path("dados/", submit_dados.as_view(), name='addados'),
+    path("informacoes/", Ver_Dados.as_view(), name='ver_dados_pessoais'),
     path("patrimonio/", views.patri),
     path("dizimo/", Addizimo.as_view(), name='dizimo'),
     path("eddizimo/<int:pk>", Eddizimo.as_view(), name='eddizimo'),

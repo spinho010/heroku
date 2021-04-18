@@ -11,43 +11,20 @@ from django.template.loader import get_template
 from xhtml2pdf import pisa
 
 # Create your views here.
-
-def home(request):
-    usuario = request.user
-    iuseer = iuser.objects.filter(usuario=usuario)
-    dados = {'iuseers':iuseer}
-    return render(request, 'dados.html', dados)
-
-
-def listar_dados(request):
-    return render(request, 'addados.html')
+class submit_dados(CreateView):
+    model = iuser
+    fields = ['names', 'idadi', 'ocupacao', 'estado', 'aniversario', 'convert', 'banho', 'casa', 'tel']
+    template_name = 'addados.html'
+    success_url = ('/')
 
 
-def submit_dados(request):
-    if request.POST:
-        names = request.POST.get('names')
-        idadi = request.POST.get('idadi')
-        ocupacao = request.POST.get('ocupacao')
-        estado = request.POST.get('estado')
-        aniversario = request.POST.get('aniversario')
-        convert = request.POST.get('convert')
-        banho = request.POST.get('banho')
-        casa = request.POST.get('casa')
-        tel = request.POST.get('tel')
-        iuser.objects.create(names = names,
-            idadi = idadi,
-            ocupacao = ocupacao,
-            estado = estado,
-            aniversario = aniversario,
-            convert = convert,
-            banho = banho,
-            casa = casa,
-            tel = tel)
-    else:
-        return HttpResponse('Método inválido para essa operação: {}'.format(request.method))
+class Ver_Dados(ListView):
+    model = iuser
+    template_name = 'dados.html'
 
-    return redirect('/')
-
+    def get_queryset(self):
+        self.object_list = iuser.objects.filter(usuario=self.request.user)
+        return self.object_list
 
 
 def patri(request):
