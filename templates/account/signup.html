@@ -11,6 +11,11 @@
 </head>
 
 <body>
+    <style>
+        #cads{
+            size: 150px;
+        }
+    </style>
     <header>
         <nav class="navbar navbar-expand navbar-dark bg-dark mb-3">
             <div class="container">
@@ -33,15 +38,17 @@
         </nav>
     </header>
 
-    <main1 class="container">
-    <h2>Cadastro</h2>
-    <form method="post"> {% csrf_token %}
-        {% csrf_token %}
-        {{ form|crispy }}
-        <button class="btn btn-success" type="submit">Cadastrar</button>
-    </form>
+    <div class="container" id="cads">
+        <main1 class="container">
+        <h2>Cadastro</h2>
+        <form method="post"> {% csrf_token %}
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button class="btn btn-success" type="submit">Cadastrar</button>
+        </form>
 
-    </main1>
+        </main1>
+    </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
