@@ -27,6 +27,13 @@ class Ver_Dados(ListView):
         return self.object_list
 
 
+class Editar_Dados(UpdateView):
+    model = iuser
+    fields = ['names', 'idadi', 'ocupacao', 'estado', 'aniversario', 'convert', 'banho', 'casa', 'tel']
+    template_name = 'editar_dados.html'
+    success_url = ('/')
+
+
 def patri(request):
     return render(request, 'patrimonio.html')
 

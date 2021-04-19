@@ -40,10 +40,14 @@
             Data de Batismo: {{ iuser.banho }} <br>
             Endereço: {{ iuser.casa }} <br>
             Telefone: {{ iuser.tel }} <br><br>
+            <a href="{% url 'editar_dados' iuser.id %}">
+                <button type="button" class="btn btn-primary" title="Editar Dados que ja foram cadastrados">Editar Dados Existentes</button><br>
+            </a>
         {% endfor %}
-        <a href="/dados">
-            <button type="button" class="btn btn-primary">Editar</button>
-        </a>
+            <br>
+            <a href="/dados" title="Fazer o Primeiro cadastro de Dados">
+                <button type="button" class="btn btn-primary">Adicionar Novos Dados</button>
+            </a>
 
 </body>
 </html>
