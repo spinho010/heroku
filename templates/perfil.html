@@ -114,7 +114,7 @@
       
         <h2 style="font-size: 40px;">Administração</h2><br>
         
-        {% if user.groups.all.0.name == 'MENBRO' %}
+        {% if user.groups.all.0.name == 'MEMBRO' %}
         <h5>Nivel de Permissão: MENBRO</h5><br>
         <h5>Você não tem Permissões Admnistrativas Disponiveis!</h5>
         <a href="/" class="btn btn-success" style="font-family: Arial, Helvetica, sans-serif;">Voltar</a>
@@ -150,7 +150,7 @@
             <h1></h1>
         {% endif %}
 
-        {% if user.groups.all.0.name == 'TESOREIRA' %}
+        {% if user.groups.all.0.name == 'TESOUREIRA' %}
             <h5>Nivel de Permissão: TESOUREIRA</h5><br>
             <a href="/dizimo" class="btn btn-success" style="font-family: Arial, Helvetica, sans-serif;">Gerenciar Entradas</a>
             <a href="/admin" class="btn btn-danger" style="font-family: Arial, Helvetica, sans-serif;">Administração</a>
