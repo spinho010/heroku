@@ -146,6 +146,7 @@
                 <li data-target="#carouselSite" data-slide-to="2" class="active"></li>
                 <li data-target="#carouselSite" data-slide-to="3" class="active"></li>
                 <li data-target="#carouselSite" data-slide-to="4" class="active"></li>
+                <li data-target="#carouselSite" data-slide-to="5" class="active"></li>
             </ol>
 
             <div class="carousel-inner">
@@ -180,6 +181,12 @@
 
                 </div>
 
+                <div class="carousel-item">
+
+                    <img src="{% static 'midia/baner8.png' %}" alt="ft" class="img-fluid d-block">
+
+                </div>
+
 
             </div>
             
@@ -201,8 +208,8 @@
 
         <br><br><br>
          <p style="font-size: 25px; font-weight: bolder; padding: 10px; font-family: Arial, Helvetica, sans-serif; background: rgb(94,204,85);
-         background: linear-gradient(90deg, rgba(94,204,85,1) 0%, rgba(31,206,141,1) 0%, rgba(21,206,150,1) 15%, rgba(4,207,165,1) 27%); color: white;", >Olá {{ user }} Bem-Vindo!<br> Este é um site de Administração, para menbros da IBBMS!<br>
-        Aqui é possivel acompanhar os assuntos da Assembleia,<br> Ver E Editar seus dados e Muito Mais!!<br>
+         background: linear-gradient(90deg, rgba(94,204,85,1) 0%, rgba(31,206,141,1) 0%, rgba(21,206,150,1) 15%, rgba(4,207,165,1) 27%); color: white;", >Olá {{ user }} Bem-Vindo!<br> Este é um site de Administração, para membros da IBBMS!<br>
+        Aqui é possivel acompanhar os assuntos das Assembleias,<br> Ver E Editar seus dados e Muito Mais!!<br>
         Esperamos que aproveite! IBBMS</p>  
         <hr>
         
@@ -275,7 +282,7 @@
         {% endif %}
 
 
-        {% if user.groups.all.0.name == 'TESOREIRA' %}
+        {% if user.groups.all.0.name == 'TESOUREIRA' %}
             <br><br><br><br>
             <div class="card" style="width: 18rem;" id="dv1">
                 <img src="{% static 'midia/arquivosp.jpg' %}" class="card-img-top" alt="...">
@@ -308,7 +315,7 @@
         {% endif %}
         
           
-        {% if user.groups.all.0.name == 'MENBRO' %}
+        {% if user.groups.all.0.name == 'MEmBRO' %}
             <div class="card" style="width: 18rem;" id="dv2">
                 <img src="{% static 'midia/dpessoa.jpg' %}" class="card-img-top" alt="...">
                 <div class="card-body">
