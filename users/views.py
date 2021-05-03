@@ -39,8 +39,10 @@ class Editar_Dados(LoginRequiredMixin, UpdateView):
     success_url = ('/')
 
 
-def patri(request):
-    return render(request, 'patrimonio.html')
+class patri(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('burlar_login')
+    model = dizimo
+    template_name = 'patrimonio.html'
 
 ################# CRIAR ###################
 class Addizimo(LoginRequiredMixin, CreateView):
@@ -72,8 +74,10 @@ class perfil(LoginRequiredMixin, ListView):
 
 
 
-def sobre(request):
-    return render(request, 'desen.html')
+class sobre(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('burlar_login')
+    model = dizimo
+    template_name = 'desen.html'
 
 
 
@@ -100,8 +104,10 @@ class pdf_dizimo(LoginRequiredMixin, ListView):
     template_name = 'boot.html'
 
 
-def atualizar(request):
-    return render(request, 'atualizacoes.html')
+class atualizar(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('burlar_login')
+    model = dizimo
+    template_name = 'atualizacoes.html'
 
 
 def login_requirido(request):

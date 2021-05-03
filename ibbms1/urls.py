@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from users import views
-from users.views import Addizimo, Eddizimo, perfil, addAta, eddAta, pdf_dizimo, atualizar, submit_dados, Ver_Dados, Editar_Dados, login_requirido
+from users.views import Addizimo, Eddizimo, perfil, addAta, eddAta, pdf_dizimo, atualizar, submit_dados, Ver_Dados, Editar_Dados, login_requirido, sobre, patri
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,13 +25,13 @@ urlpatterns = [
     path("dados/", submit_dados.as_view(), name='addados'),
     path("informacoes/", Ver_Dados.as_view(), name='ver_dados_pessoais'),
     path("dadosedd/<int:pk>/", Editar_Dados.as_view(), name='editar_dados'),
-    path("patrimonio/", views.patri),
+    path("patrimonio/", patri.as_view(), name='patrimonio'),
     path("dizimo/", Addizimo.as_view(), name='dizimo'),
     path("perfil/", perfil.as_view(), name='perfil'),
-    path("sobre/", views.sobre),
+    path("sobre/", sobre.as_view(), name='sobre'),
     path("relatorios/", addAta.as_view(), name='relatorios'),
     path("atas/", eddAta.as_view(), name='ver_relatorios'),
     path("pdf/", pdf_dizimo.as_view(), name='boot_relatorio'),
-    path('atualizacoes/', views.atualizar),
+    path('atualizacoes/', atualizar.as_view(), name='atualizar'),
     path('requerid/', views.login_requirido, name='burlar_login')
 ]
