@@ -9,16 +9,20 @@ from django.http import FileResponse
 from reportlab.pdfgen import canvas
 from django.template.loader import get_template
 from xhtml2pdf import pisa
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy
 
 # Create your views here.
-class submit_dados(CreateView):
+class submit_dados(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('burlar_login')
     model = iuser
     fields = ['names', 'idadi', 'ocupacao', 'estado', 'aniversario', 'convert', 'banho', 'casa', 'tel']
     template_name = 'addados.html'
     success_url = ('/')
 
 
-class Ver_Dados(ListView):
+class Ver_Dados(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('burlar_login')
     model = iuser
     template_name = 'dados.html'
 
@@ -27,7 +31,8 @@ class Ver_Dados(ListView):
         return self.object_list
 
 
-class Editar_Dados(UpdateView):
+class Editar_Dados(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('burlar_login')
     model = iuser
     fields = ['names', 'idadi', 'ocupacao', 'estado', 'aniversario', 'convert', 'banho', 'casa', 'tel']
     template_name = 'editar_dados.html'
@@ -38,7 +43,8 @@ def patri(request):
     return render(request, 'patrimonio.html')
 
 ################# CRIAR ###################
-class Addizimo(CreateView):
+class Addizimo(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('burlar_login')
     model = dizimo
     fields = ['valor', 'data_entrada', 'usuario']
     template_name = 'dizimo.html'
@@ -47,14 +53,16 @@ class Addizimo(CreateView):
 
 
 ################# ATUALIZAR ###################
-class Eddizimo(UpdateView):
+class Eddizimo(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('burlar_login')
     model = dizimo
     fields = ['valor', 'data_entrada', 'usuario']
     template_name = 'dizimo.html'
     success_url = ('/')
 
 
-class perfil(ListView):
+class perfil(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('burlar_login')
     model = dizimo
     template_name = 'perfil.html'
 
@@ -69,7 +77,8 @@ def sobre(request):
 
 
 
-class addAta(CreateView):
+class addAta(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('burlar_login')
     model = relatorios
     fields = ['relatorio', 'nome_rela', 'data_relatorio']
     template_name = 'atas.html'
@@ -77,17 +86,23 @@ class addAta(CreateView):
 
 
 
-class eddAta(ListView):
+class eddAta(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('burlar_login')
     model = relatorios
     template_name = 'assem.html'
 
 
 #####################################
 
-class pdf_dizimo(ListView):
+class pdf_dizimo(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('burlar_login')
     model = dizimo
     template_name = 'boot.html'
 
 
 def atualizar(request):
     return render(request, 'atualizacoes.html')
+
+
+def login_requirido(request):
+    return render(request, 'requerid.html')

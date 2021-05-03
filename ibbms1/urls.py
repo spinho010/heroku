@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from users import views
-from users.views import Addizimo, Eddizimo, perfil, addAta, eddAta, pdf_dizimo, atualizar, submit_dados, Ver_Dados, Editar_Dados
+from users.views import Addizimo, Eddizimo, perfil, addAta, eddAta, pdf_dizimo, atualizar, submit_dados, Ver_Dados, Editar_Dados, login_requirido
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,4 +33,5 @@ urlpatterns = [
     path("atas/", eddAta.as_view(), name='ver_relatorios'),
     path("pdf/", pdf_dizimo.as_view(), name='boot_relatorio'),
     path('atualizacoes/', views.atualizar),
+    path('requerid/', views.login_requirido, name='burlar_login')
 ]
