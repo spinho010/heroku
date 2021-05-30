@@ -124,6 +124,8 @@
 
         {% if user.groups.all.0.name == 'DESENVOLVEDOR' %}
             <h5>Nivel de Permissão: DESENVOLVEDOR</h5><br>
+            <a href="/fichas" class="btn btn-success" style="font-family: Arial, Helvetica, sans-serif;">Fichas</a>
+            <a href="/pdf" class="btn btn-danger" style="font-family: Arial, Helvetica, sans-serif;" target="_blank">Gerar Relatorio</a>
             <a href="/dizimo" class="btn btn-success" style="font-family: Arial, Helvetica, sans-serif;">Gerenciar Entradas</a>
             <a href="/relatorios" class="btn btn-primary" style="font-family: Arial, Helvetica, sans-serif;">Adicionar Relatorios</a>
             <a href="/admin" class="btn btn-danger" style="font-family: Arial, Helvetica, sans-serif;">Administração</a>
@@ -134,6 +136,7 @@
 
         {% if user.groups.all.0.name == 'DIREITORIA' %}
         <h5>Nivel de Permissão: DIREITORIA</h5><br>
+            <a href="/fichas" class="btn btn-success" style="font-family: Arial, Helvetica, sans-serif;">Fichas</a>
             <a href="/dizimo" class="btn btn-success" style="font-family: Arial, Helvetica, sans-serif;">Gerenciar Entradas</a>
             <a href="/relatorios" class="btn btn-primary" style="font-family: Arial, Helvetica, sans-serif;">Adicionar Relatorios</a>
             <a href="/admin" class="btn btn-danger" style="font-family: Arial, Helvetica, sans-serif;">Administração</a>

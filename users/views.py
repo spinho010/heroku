@@ -112,3 +112,8 @@ class atualizar(LoginRequiredMixin, ListView):
 
 def login_requirido(request):
     return render(request, 'requerid.html')
+
+class fichas(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('burlar_login')
+    model = iuser
+    template_name = 'fichas.html'
