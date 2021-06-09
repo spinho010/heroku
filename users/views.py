@@ -81,6 +81,17 @@ class sobre(LoginRequiredMixin, ListView):
 
 
 
+class Entradas(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('burlar_login')
+    model = dizimo
+    template_name = 'entradas.html'
+
+    def get_queryset(self):
+        self.object_list = dizimo.objects.filter(usuario=self.request.user)
+        return self.object_list
+
+
+
 class addAta(LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('burlar_login')
     model = relatorios
