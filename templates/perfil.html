@@ -14,6 +14,7 @@
         #dv5{
             padding: 20px;
             margin: auto;
+            display: inline-block;
         }
         body{
         background: rgb(94,204,85);
@@ -28,69 +29,51 @@
         }
         main {
         background-color: white;
-        width: 1000px;
+        width: auto;
         heigth: 600px;
         margin: auto;
+        margin-left: 30px;
+        margin-right: 30px;
         padding: 20px;
         box-shadow: 6px 6px 10px black;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 25px;
         border-radius: 15px;}
+
         #teste{
-          background-color: white;
-          width: 1000px;
-          heigth: 370px;
-          margin: auto;
-          padding: 20px;
-          box-shadow: 6px 6px 10px black;
-          font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-          font-size: 25px;
-          border-radius: 15px;
+            background-color: white;
+            width: auto;
+            heigth: 600px;
+            margin: auto;
+            margin-left: 30px;
+            margin-right: 30px;
+            padding: 20px;
+            box-shadow: 6px 6px 10px black;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 25px;
+            border-radius: 15px;
         }
-      
     </style>
     
     <br><br>
-    <div class="card" style="width: 18rem;" id="dv5">
-        <img src="{% static 'midia/perfil.jpg' %}" class="card-img-top" alt="">
-        <div class="card-body">
-          <h5 class="card-title">Olá {{ user }} Bem-Vindo ao seu Perfil</h5>
-          <p class="card-text"> <br>
-        </div>
-      </div>
+        <main>
+            <h2 style="font-weight: bold; display: inline-block; font-size: 50px;">Sua Ficha</h2><br>
+            <hr>
+                <strong>
+                    {% for iuser in object_list %}
+                        Nome: {{ iuser.names }} <br>
+                        Idade: {{ iuser.idadi }} <br>
+                        Cargo: {{ iuser.ocupacao }} <br>
+                        Telefone: {{ iuser.tel }}
+                    {% endfor %}
+                </strong>
+                <hr>
+                <strong>
+                    <h3 style="font-weight: bold;">Clicando aqui, você poderá ver com detalhes, suas entradas financeiras na IBBMS</h3>
+                    <a href=""><button type="button" class="btn btn-outline-info">Clique Aqui!</button></a>
+                </strong>
+        </main>
       <br><br><br>
-
-      <main>
-        <div class="table-responsive" id="dv7">
-            <table class="table-table-striped">
-              <h3 style="text-align: center;">HISTORICO DE ENTRADAS</h3><br>
-              <tr>
-                <th style="text-align: left;">Nome-------------------</th>
-
-                <th style="text-align: center;">Valor da Entrada----------------</th>
-                
-                <th style="text-align: right;">Data da Entrada</th>
-              </tr>
-              
-              {% for dizimo in object_list %}
-              <tr>
-                <td>{{ dizimo.usuario }}</td>
-                <td>{{ dizimo.valor }}</td>
-                <td>{{ dizimo.data_entrada }}</td>
-              </tr>
-              {% empty %}
-
-              <td colspan="3">Não tenho registros para este usuario</td>
-
-              {% endfor %}
-
-
-            </table>
-
-        </div>
-      </main>
-      <br><br>
-      
       <br><br>
       
       <h1 style="color: white; text-align: center; font-size: 70px;">Opções</h1>
@@ -98,20 +81,20 @@
       <br><br><br>
 
 
-      <main id="teste">
-        <h2>Leitura Bíblica!</h2>
-        <a href="https://www.bibliaonline.com.br/acf/index" target="__blank"><button class="btn btn-success" style="font-family: Arial, Helvetica, sans-serif;">Ler A Biblia!</button></a>  <img src="{% static 'midia/lendo.jpg' %}" alt="ft" width="500px" align="right">
+    <main id="teste">
+        <h2 style="font-size: 45px;">Leitura Bíblica!</h2>
+        <a href="https://www.bibliaonline.com.br/acf/index" target="__blank"><button class="btn btn-success" style="font-family: Arial, Helvetica, sans-serif;">Ler A Biblia!</button></a>  <img src="{% static 'midia/lendo.jpg' %}" alt="ft" width="200px" align="right">
         <br><br>
 
-        <h2>Ouvir Hinos!</h2><br>
+        <h2 style="font-size: 45px;">Ouvir Hinos!</h2><br>
         <audio src="{% static 'musicas.mp3' %}" controls ></audio>
         <br><br>
 
-        <h2>Letra Dos Hinos!</h2>
+        <h2 style="font-size: 45px;">Letra Dos Hinos!</h2>
         <a href="https://www.letras.mus.br/cantor-cristao/" target="__blank"><button class="btn btn-success" style="font-family: Arial, Helvetica, sans-serif;">Ler A Biblia!</button></a><br><br>
-      <br>
-      
-      
+        <br>
+    
+    
         <h2 style="font-size: 40px;">Administração</h2><br>
         
         {% if user.groups.all.0.name == 'MEMBRO' %}
@@ -171,7 +154,8 @@
         {% else %}
             <h1></h1>
         {% endif %}
-        <br></main>
+        <br>
+    </main>
 
         <br><br><br><br>
         

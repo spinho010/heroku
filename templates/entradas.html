@@ -1,0 +1,11 @@
+{% for dizimo in object_list %}
+    <tr>
+    <td>{{ dizimo.usuario }}</td>
+    <td>{{ dizimo.valor }}</td>
+    <td>{{ dizimo.data_entrada }}</td>
+    </tr>
+{% empty %}
+
+    <td colspan="3">Não tenho registros para este usuario</td>
+
+{% endfor %}

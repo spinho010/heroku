@@ -65,11 +65,11 @@ class Eddizimo(LoginRequiredMixin, UpdateView):
 
 class perfil(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('burlar_login')
-    model = dizimo
+    model = iuser
     template_name = 'perfil.html'
 
     def get_queryset(self):
-        self.object_list = dizimo.objects.filter(usuario=self.request.user)
+        self.object_list = iuser.objects.filter(usuario=self.request.user)
         return self.object_list
 
 
