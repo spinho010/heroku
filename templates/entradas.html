@@ -26,38 +26,61 @@
             border-radius: 15px;
         }
     </style>
+            <nav class="navbar navbar-expand navbar-dark bg-dark mb-1">
+                <div class="container">
+                    <a class="navbar-brand" href="{% url 'pages:home' %}">IBBMS</a>
+                    <ul class="navbar-nav">
+                        {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/perfil">Meu Perfil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin">Administração</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'account_logout' %}">Sair</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'account_login' %}">Entrar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'account_signup' %}">Cadastro</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </nav>
 </head>
 <body>
     <br><br><br><br>
+    <h1 style="text-align: center; color: white; font-weight: bold;">Aqui estão listadas todas as suas entradas!</h1>
+    <br><br>
     <main>
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-          </tr>
-        </thead>
-        <tbody>
-        {% for dizimo in object_list %}
-            <tr>
-                <td>{{ dizimo.usuario }}</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <td>{{ dizimo.valor }}</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <td colspan="2">{{ dizimo.data_entrada }}</td>
-                <td>@twitter</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-      </table>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <tr>
+                    <th>Nome do Usuario</th>
+                    <th>Valor Recebido</th>
+                    <th>Data do Recebimento</th>
+                </tr>
+
+                {% for dizimo in object_list %}
+                <tr>
+                    <td>{{ dizimo.usuario }}</td>
+                    <td>{{ dizimo.valor }}</td>
+                    <td>{{ dizimo.data_entrada }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="3">
+                        Nenhuma entrada foi encontrada em nosso Sistema!
+                    </td>
+                </tr>
+
+                {% endfor %}
+            </table>
+        </div>
     </main>
 </body>
 </html>
-
