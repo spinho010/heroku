@@ -10,6 +10,31 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
     <title>Editar Seus Dados</title>
+    <nav class="navbar navbar-expand navbar-dark bg-dark mb-1">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'pages:home' %}">IBBMS</a>
+            <ul class="navbar-nav">
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/perfil">Meu Perfil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin">Administração</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'account_logout' %}">Sair</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'account_login' %}">Entrar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'account_signup' %}">Cadastro</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
     <style>
         body{
         background: rgb(94,204,85);
