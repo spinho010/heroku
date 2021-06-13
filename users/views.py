@@ -20,6 +20,14 @@ class submit_dados(LoginRequiredMixin, CreateView):
     template_name = 'addados.html'
     success_url = ('/')
 
+    def form_valid(self, form):
+
+        form.instance.usuario = self.request.user
+
+        url = super().form_valid(form)
+
+        return url
+
 
 class Ver_Dados(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('burlar_login')
