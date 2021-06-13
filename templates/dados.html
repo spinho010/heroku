@@ -17,9 +17,10 @@
         }
         main {
         background-color: white;
-        width: 700px;
         heigth: 600px;
-        margin: auto;
+        width: auto;
+        margin-left: 30px;
+        margin-right: 30px;
         padding: 10px;
         box-shadow: 6px 6px 10px black;
         font-family: Arial, Helvetica, sans-serif;
@@ -28,9 +29,10 @@
         }        
     </style>
     <br><br>
-    <main><h4>_________________Suas Informações_________________<br><br>
-        Usuário: {{ user }}<br>
+    <main><h1 style="font-weight: bold;">Suas Informações</h1>
+        <hr>
         {% for iuser in object_list %}
+        <p style="font-weight: bold;">
             Nome: {{ iuser.names }} <br>
             Idade: {{ iuser.idadi }} <br>
             Cargo: {{ iuser.ocupacao }} <br>
@@ -39,7 +41,9 @@
             Data de Conversão: {{ iuser.convert }} <br>
             Data de Batismo: {{ iuser.banho }} <br>
             Endereço: {{ iuser.casa }} <br>
-            Telefone: {{ iuser.tel }} <br><br>
+            Telefone: {{ iuser.tel }} <br>
+        </p>
+            <hr>
             <a href="{% url 'editar_dados' iuser.id %}">
                 <button type="button" class="btn btn-primary" title="Editar Dados que ja foram cadastrados">Editar Dados Existentes</button><br>
             </a>
@@ -47,7 +51,8 @@
             <br>
             <a href="/dados" title="Fazer o Primeiro cadastro de Dados">
                 <button type="button" class="btn btn-primary">Adicionar Novos Dados</button>
-            </a>
+            </a></main>
 
+            <br><br><br><br>
 </body>
 </html>

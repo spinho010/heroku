@@ -90,6 +90,9 @@
                         Idade: {{ iuser.idadi }} <br>
                         Cargo: {{ iuser.ocupacao }} <br>
                         Telefone: {{ iuser.tel }}
+
+                    {% empty %}
+                        Seus dados não foram encontrados em nosso Sistema!
                     {% endfor %}
                 </strong>
                 <hr>
