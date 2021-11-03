@@ -6,6 +6,7 @@ from django.contrib.auth import admin as auth_admin
 from users.models import iuser
 from users.models import dizimo
 from users.models import relatorios
+from users.models import estatuto
 
 
 #@admin.register(User)
@@ -34,3 +35,8 @@ class Atas(admin.ModelAdmin):
     list_display = ('nome_rela', 'data_relatorio')
 
 admin.site.register(relatorios, Atas)
+
+class EstatutoAdmin(admin.ModelAdmin):
+    list_display = ('estatuto', 'estatuto_data')
+
+admin.site.register(estatuto, EstatutoAdmin)

@@ -11,6 +11,61 @@ from django.template.loader import get_template
 from xhtml2pdf import pisa
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
+from django.views.generic import TemplateView
+
+
+class EstatutoView(TemplateView):
+    template_name = 'estatuto.html'
+
+
+class EstatutoView1(TemplateView):
+    template_name = 'estatuto1.html'
+
+
+class EstatutoView2(TemplateView):
+    template_name = 'estatuto2.html'
+
+
+class EstatutoView3(TemplateView):
+    template_name = 'estatuto3.html'
+
+
+class EstatutoView4(TemplateView):
+    template_name = 'estatuto4.html'
+
+
+class EstatutoView5(TemplateView):
+    template_name = 'estatuto5.html'
+
+
+class EstatutoView6(TemplateView):
+    template_name = 'estatuto6.html'
+
+
+class EstatutoView7(TemplateView):
+    template_name = 'estatuto7.html'
+
+
+class EstatutoView8(TemplateView):
+    template_name = 'estatuto8.html'
+
+
+class EstatutoView9(TemplateView):
+    template_name = 'estatuto9.html'
+
+
+class EstatutoView10(TemplateView):
+    template_name = 'estatuto10.html'
+
+
+class EstatutoView11(TemplateView):
+    template_name = 'estatuto11.html'
+
+
+class EstatutoView12(TemplateView):
+    template_name = 'estatuto12.html'
+
+
 
 # Create your views here.
 class submit_dados(LoginRequiredMixin, CreateView):

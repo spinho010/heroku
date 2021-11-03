@@ -48,6 +48,10 @@ class dizimo(models.Model):
 
 class relatorios(models.Model):
     nome_rela = models.CharField(verbose_name='Nome do Relatorio:', max_length=100, blank=True)
-    relatorio = models.TextField(verbose_name='Relatório:', max_length=1000000, blank=True)
+    relatorio = models.TextField(verbose_name='Relatório:', max_length=900, blank=True)
     data_relatorio = models.CharField(verbose_name='Data do Relatorio:', max_length=50, blank=True)
 
+
+class estatuto(models.Model):
+    estatuto = models.TextField(verbose_name='Artigos', max_length=1000000, blank=True, null=True)
+    estatuto_data = models.CharField(verbose_name='Data Estatuto', max_length=100, blank=True, null=True)
