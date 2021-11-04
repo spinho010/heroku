@@ -11,37 +11,47 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
     <title>Estatuto Digital</title>
-    <nav class="navbar navbar-expand navbar-dark bg-dark mb-1">
-        <div class="container">
-            <a class="navbar-brand" href="{% url 'pages:home' %}">IBBMS</a>
-            <ul class="navbar-nav">
-                {% if user.is_authenticated %}
-                <li class="nav-item">
-                    <a class="nav-link" href="/perfil">Meu Perfil</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/admin">Administração</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'account_logout' %}">Sair</a>
-                </li>
-                {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'account_login' %}">Entrar</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'account_signup' %}">Cadastro</a>
-                </li>
-                {% endif %}
-            </ul>
-        </div>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="{% url 'pages:home' %}">IBBMS</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+                <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                    <ul class="navbar-nav mr-auto">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/perfil">Meu perfil</a>
+                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin">Administração</a>
+                        </li>
+                    </ul>
+                        <ul class="navbar-nav px-3">
+                            <li class="nav-item text-nowrap">
+                                <a href="{% url 'account_logout' %}" class="nav-link">Sair</a>
+                            </li>
+                    </ul>
+                    {% else %}
+                    </ul>
+                        <ul class="navbar-nav px-3">
+                        <li class="nav-item">
+                            <a href="{% url 'account_login' %}" class="nav-link">Entrar</a>
+                        </li>
+                    </ul>
+                        <ul class="navbar-nav px-3">
+                        <li class="nav-item">
+                            <a href="{% url 'account_signup' %}" class="nav-link">Cadastrar</a>
+                        </li>
+                    </ul>
+                    {% endif %}
+            </div>
     </nav>
 </head>
 <body>
     <style>
     body{
         background: rgb(94,204,85);
-        background: linear-gradient(90deg, rgba(94,204,85,1) 0%, rgba(31,206,141,1) 0%, rgba(21,206,150,1) 15%, rgba(4,207,165,1) 27%); color: white;" >Nivel de Permissão: MENBRO</h5><br>
+        background: linear-gradient(90deg, rgba(94,204,85,1) 0%, rgba(31,206,141,1) 0%, rgba(21,206,150,1) 15%, rgba(4,207,165,1) 27%); color: white;
     }
     .novo-botao{
             background-color: white;
@@ -173,5 +183,13 @@
     </a>
     <hr>
 <br><br><br><br>
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Select2 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 </body>
 </html>

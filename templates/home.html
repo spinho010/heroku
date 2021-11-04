@@ -13,30 +13,40 @@
 <body>
 {% csrf_token %}
     <header>
-        <nav class="navbar navbar-expand navbar-dark bg-dark mb-1">
-            <div class="container">
-                <a class="navbar-brand" href="{% url 'pages:home' %}">IBBMS</a>
-                <ul class="navbar-nav">
-                    {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="/perfil">Meu Perfil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/admin">Administração</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_logout' %}">Sair</a>
-                    </li>
-                    {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_login' %}">Entrar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_signup' %}">Cadastro</a>
-                    </li>
-                    {% endif %}
-                </ul>
-            </div>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <a class="navbar-brand" href="{% url 'pages:home' %}">IBBMS</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                        <ul class="navbar-nav mr-auto">
+                        {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/perfil">Meu perfil</a>
+                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin">Administração</a>
+                            </li>
+                        </ul>
+                            <ul class="navbar-nav px-3">
+                                <li class="nav-item text-nowrap">
+                                    <a href="{% url 'account_logout' %}" class="nav-link">Sair</a>
+                                </li>
+                        </ul>
+                        {% else %}
+                        </ul>
+                            <ul class="navbar-nav px-3">
+                            <li class="nav-item">
+                                <a href="{% url 'account_login' %}" class="nav-link">Entrar</a>
+                            </li>
+                        </ul>
+                            <ul class="navbar-nav px-3">
+                            <li class="nav-item">
+                                <a href="{% url 'account_signup' %}" class="nav-link">Cadastrar</a>
+                            </li>
+                        </ul>
+                        {% endif %}
+                </div>
         </nav>
     </header>
 
@@ -161,7 +171,7 @@
 
 {% if user.is_authenticated %}
 
-        <div id="carouselSite" class="carousel slide" data-ride="carousel">
+        <div id="carouselSite" class="carousel slide" data-ride="carousel" style="margin-top: 70px;">
 
             <ol class="carousel-indicators">
                 <li data-target="#carouselSite" data-slide-to="0" class="active"></li>
@@ -612,11 +622,12 @@
 {% else %}
 
 {% endif %}
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-
-    
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Select2 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 </body>
 </html>
