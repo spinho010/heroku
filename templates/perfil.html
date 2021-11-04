@@ -201,9 +201,17 @@
         {% else %}
             <h1></h1>
         {% endif %}
+
+        {% if user.groups.all.0.name == 'PATRIMÔNIO' %}
+            <h5>Nivel de Permissão: PATRIMÔNIO</h5><br>
+            <a href="/" class="btn btn-success" style="font-family: Arial, Helvetica, sans-serif;">Voltar</a>
+            <a href="/patrimonioadd" class="btn btn-primary" style="font-family: Arial, Helvetica, sans-serif;">Adicionar itens</a>
+        {% else %}
+            <h1></h1>
+        {% endif %}
         <br>
     </main>
-
+    
         <br><br><br><br>
         
         <h1 style="font-size: 70px; text-align: center; color: white;">.......IBBMS.......</h1>
