@@ -55,3 +55,35 @@ class relatorios(models.Model):
 class estatuto(models.Model):
     estatuto = models.TextField(verbose_name='Artigos', max_length=1000000, blank=True, null=True)
     estatuto_data = models.CharField(verbose_name='Data Estatuto', max_length=100, blank=True, null=True)
+
+
+
+class statusItem(models.Model):
+    StatusI = models.CharField(verbose_name='Status do item:', max_length=60, null=True, blank=True)
+    obsI = models.CharField(verbose_name='Obs Item: ', max_length=60, null=True, blank=True)
+
+    def __str__(self):
+            return "{}".format(self.StatusI)
+
+
+
+class dispoItem(models.Model):
+    DispoI = models.CharField(verbose_name='Disponibilidade do item:', max_length=60, null=True, blank=True)
+    obsII = models.CharField(verbose_name='Obs Item: ', max_length=60, null=True, blank=True)
+
+    def __str__(self):
+            return "{}".format(self.DispoI)
+
+
+
+class patrimonioibb(models.Model):
+    nome_item = models.CharField(verbose_name='Nome: ', max_length=100, blank=True, null=True)
+    quantidade_item = models.IntegerField(verbose_name='Quantidade: ', blank=True, null=True)
+    status_item = models.ForeignKey(statusItem, max_length=100, null=True, on_delete=models.PROTECT)
+    dispon_item = models.ForeignKey(dispoItem, max_length=100, null=True, on_delete=models.PROTECT)
+    obs_item = models.CharField(verbose_name='Observações: ', max_length=100, blank=True, null=True)
+    doador_item =models.CharField(verbose_name='Doado por: ', max_length=100, blank=True, null=True)
+
+    def __str__(self):
+            return "{}".format(self.nome_item)
+

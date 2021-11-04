@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from users import views
-from users.views import Addizimo, Eddizimo, perfil, addAta, eddAta, pdf_dizimo, atualizar, submit_dados, Ver_Dados, Editar_Dados, login_requirido, sobre, patri, fichas, Entradas, EstatutoView, EstatutoView1, EstatutoView2, EstatutoView3, EstatutoView4, EstatutoView5, EstatutoView6, EstatutoView7, EstatutoView8, EstatutoView9, EstatutoView10, EstatutoView11, EstatutoView12
+from users.views import Addizimo, Eddizimo, perfil, addAta, eddAta, pdf_dizimo, atualizar, submit_dados, Ver_Dados, Editar_Dados, login_requirido, sobre, patri, fichas, Entradas, EstatutoView, EstatutoView1, EstatutoView2, EstatutoView3, EstatutoView4, EstatutoView5, EstatutoView6, EstatutoView7, EstatutoView8, EstatutoView9, EstatutoView10, EstatutoView11, EstatutoView12, CreatePatri
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -49,4 +49,5 @@ urlpatterns = [
     path('estatuto/10/', EstatutoView10.as_view(), name='estatuto10'),
     path('estatuto/11/', EstatutoView11.as_view(), name='estatuto11'),
     path('estatuto/12/', EstatutoView12.as_view(), name='estatuto12'),
+    path('patrimonioadd/', CreatePatri.as_view(), name='patrimonioadd'),
 ]

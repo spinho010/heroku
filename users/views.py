@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
-from users.models import iuser, dizimo, relatorios
+from users.models import iuser, dizimo, relatorios, patrimonioibb
 from django.contrib.auth.models import User
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
@@ -104,8 +104,16 @@ class Editar_Dados(LoginRequiredMixin, UpdateView):
 
 class patri(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('burlar_login')
-    model = dizimo
+    model = patrimonioibb
     template_name = 'patrimonio.html'
+
+
+class CreatePatri(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('burlar_login')
+    model = patrimonioibb
+    fields = ['nome_item', 'quantidade_item', 'status_item', 'dispon_item', 'obs_item', 'doador_item']
+    template_name = 'patrimoniocreate.html'
+    success_url = ('/')
 
 ################# CRIAR ###################
 class Addizimo(LoginRequiredMixin, CreateView):

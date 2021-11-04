@@ -7,7 +7,9 @@ from users.models import iuser
 from users.models import dizimo
 from users.models import relatorios
 from users.models import estatuto
-
+from users.models import patrimonioibb
+from users.models import statusItem
+from users.models import dispoItem
 
 #@admin.register(User)
 #class UserAdmin(auth_admin.UserAdmin):
@@ -40,3 +42,18 @@ class EstatutoAdmin(admin.ModelAdmin):
     list_display = ('estatuto', 'estatuto_data')
 
 admin.site.register(estatuto, EstatutoAdmin)
+
+class PatrimonioAdm(admin.ModelAdmin):
+    list_display = ('nome_item', 'quantidade_item', 'status_item', 'dispon_item', 'obs_item', 'doador_item')
+
+admin.site.register(patrimonioibb, PatrimonioAdm)
+
+class Status_Iteem(admin.ModelAdmin):
+    list_display = ('StatusI', 'obsI')
+
+admin.site.register(statusItem, Status_Iteem)
+
+class Disponib_Iteem(admin.ModelAdmin):
+    list_display = ('DispoI', 'obsII')
+
+admin.site.register(dispoItem, Disponib_Iteem)
